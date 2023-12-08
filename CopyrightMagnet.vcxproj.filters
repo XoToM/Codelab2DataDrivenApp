@@ -78,6 +78,9 @@
     <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
       <UniqueIdentifier>{6D569A5B-6719-AEFD-C08E-5CE5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\prefabs">
+      <UniqueIdentifier>{e4613b44-40ae-4052-8bae-00ecd218419e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
@@ -132,7 +135,7 @@
       <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
     </ClInclude>
     <ClInclude Include="Prefab.h">
-      <Filter>src</Filter>
+      <Filter>src\prefabs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

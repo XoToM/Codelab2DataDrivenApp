@@ -14,16 +14,22 @@ namespace poke_app {
 		std::vector<std::shared_ptr<PrefabBase>> Children;
 		boost::optional<std::weak_ptr<PrefabBase>> Parent = boost::none;
 
-		ofApp* getApp();
-		bool onMousePressed(int x, int y, int button);
-		bool onMouseReleased(int x, int y, int button);
-		bool onElementSelected();
-		bool onElementDeselected();
+		PrefabBase() {}
+		PrefabBase(std::weak_ptr<PrefabBase> parent) {
+			this->Parent = parent;
+		}
+
+		virtual bool onMousePressed(int x, int y, int button);
+		virtual bool onMouseReleased(int x, int y, int button);
+		virtual bool onElementSelected();
+		virtual bool onElementDeselected();
+		virtual bool onKey();
+		virtual bool onRender();
+
 		template<class T> void addChild(std::shared_ptr<T> new_child) {
 			static_assert(std::is_base_of_v<PrefabBase, T>,"Class needs to extend PrefabBase");
 			std::shared_ptr<PrefabBase> child = std::static_pointer_cast<PrefabBase, T>(new_child);
-
-			//child->Parent = this;
+			this->Children.push_back(child);
 		}
 	};
 };
