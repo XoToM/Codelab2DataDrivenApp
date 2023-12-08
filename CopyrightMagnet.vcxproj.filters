@@ -134,7 +134,10 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h">
       <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
     </ClInclude>
-    <ClInclude Include="Prefab.h">
+    <ClInclude Include="UiElement.h">
+      <Filter>src\prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="UiBox.h">
       <Filter>src\prefabs</Filter>
     </ClInclude>
   </ItemGroup>

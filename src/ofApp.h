@@ -1,6 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "../UiBox.h"
+#include "../UiElement.h"
+#include "ofMain.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,4 +24,5 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+		std::shared_ptr<PokeApp::Ui::UiBox> root;
 };
