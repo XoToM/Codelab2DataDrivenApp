@@ -43,6 +43,10 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
     </ClCompile>
+    <ClCompile Include="UiElement.cpp" />
+    <ClCompile Include="UiBox.cpp">
+      <Filter>src\prefabs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -138,6 +142,9 @@
       <Filter>src\prefabs</Filter>
     </ClInclude>
     <ClInclude Include="UiBox.h">
+      <Filter>src\prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="UiButton.h">
       <Filter>src\prefabs</Filter>
     </ClInclude>
   </ItemGroup>

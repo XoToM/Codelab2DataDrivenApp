@@ -1,17 +1,20 @@
 #pragma once
 
-#include "src/ofApp.h"
 #include <vector>
 #include <memory>
 #include <type_traits>
 #include <optional>
+#include "src/ofApp.h"
 #include "boost/optional.hpp"
 #include "ofMain.h"
 
-namespace PokeApp {
-	namespace Ui {
+//namespace PokeApp {
+	//namespace Ui {
 
 		class UiElement {
+		protected:
+			//bool defaultOnMousePressed(int x, int y, int button);
+			//bool defaultOnMouseReleased(int x, int y, int button);
 		public:
 			std::vector<std::shared_ptr<UiElement>> Children;
 			boost::optional<std::weak_ptr<UiElement>> Parent = boost::none;
@@ -21,8 +24,11 @@ namespace PokeApp {
 			int width;
 			int height;
 
-			//virtual bool onMousePressed(int x, int y, int button);
+			virtual bool onMousePressed(int x, int y, int button) = 0;
 			//virtual bool onMouseReleased(int x, int y, int button);
+
+			virtual bool onMouseReleased(int x, int y, int button) = 0;
+			virtual bool onClicked(int button) = 0;
 			//virtual bool onElementSelected();
 			//virtual bool onElementDeselected();
 			//virtual bool onKey();
@@ -34,5 +40,5 @@ namespace PokeApp {
 				this->Children.push_back(child);
 			}
 		};
-	}
-};
+	//}
+//};

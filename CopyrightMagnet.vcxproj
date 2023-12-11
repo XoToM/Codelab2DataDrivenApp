@@ -195,8 +195,11 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
+    <ClCompile Include="UiBox.cpp" />
+    <ClCompile Include="UiElement.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="UiButton.h" />
     <ClInclude Include="UiElement.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
