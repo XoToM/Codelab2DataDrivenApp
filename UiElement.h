@@ -23,6 +23,13 @@
 			bool isPressed = false;
 			bool isChildPressed = false;
 
+			float calculatedWidth;
+			float requestedMinWidth;
+			float requestedMaxWidth;
+			int widthGrowPoints = 1;
+			//int widthGrowPriority = 0;
+			bool sizeCalculationTemporaryMarker;
+
 			virtual bool onMousePressed(int x, int y, int button) {
 				isChildPressed = true;
 				for (auto child : this->Children) {
@@ -65,6 +72,8 @@
 				std::shared_ptr<UiElement> child = std::static_pointer_cast<UiElement, T>(new_child);
 				this->Children.push_back(child);
 			}
+
+			virtual void recalculateSize() = 0;
 		};
 	//}
 //};

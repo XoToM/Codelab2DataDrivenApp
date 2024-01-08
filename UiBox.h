@@ -34,6 +34,7 @@
 			bool onClicked(int button) {
 				return true;
 			}
+			void recalculateSize();
 		};
 	//}
 //}

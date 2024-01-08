@@ -47,6 +47,9 @@
     <ClCompile Include="UiBox.cpp">
       <Filter>src\prefabs</Filter>
     </ClCompile>
+    <ClCompile Include="uiSpaceAllocator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -146,6 +149,9 @@
     </ClInclude>
     <ClInclude Include="UiButton.h">
       <Filter>src\prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="uiSpaceAllocator.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
