@@ -5,10 +5,11 @@ void calculateSizeOnXAxis(float containerSize, std::vector<std::shared_ptr<UiEle
 	 for (auto& c : children) {
 		 minimumWidth += c->requestedMinWidth;
 		 c->sizeCalculationTemporaryMarker = false;
-		 c->calculatedWidth = c->requestedMinWidth;
+		 //c->calculatedWidth = c->requestedMinWidth;
 	 }
 	 int growPoints;
 	 float spaceLeft = containerSize - minimumWidth;
+	 float spacePerPoint = 0;
 	 while (true) {
 		 growPoints = 0;
 		 for (auto& c : children) {
@@ -16,24 +17,38 @@ void calculateSizeOnXAxis(float containerSize, std::vector<std::shared_ptr<UiEle
 			 growPoints += c->widthGrowPoints;
 		 }
 		 if (growPoints == 0) break;
-		 auto spacePerPoint = spaceLeft / growPoints;
+		 spacePerPoint = spaceLeft / growPoints;
 		 bool corrected = false;
 		 for (auto& c : children) {
 			 if (c->sizeCalculationTemporaryMarker || c->requestedMaxWidth < 0) continue;
 			 if (c->widthGrowPoints * spacePerPoint > (c->requestedMaxWidth - c->requestedMinWidth)) {
 				 corrected = true;
 				 spaceLeft -= (c->requestedMaxWidth - c->requestedMinWidth);
-				 c->calculatedWidth = c->requestedMaxWidth;
+				 float newWidth = c->requestedMaxWidth;
 				 c->sizeCalculationTemporaryMarker = true;
+				 if (c->calculatedWidth != newWidth) {
+					 c->calculatedWidth = newWidth;
+					 c->recalculateSize(newWidth);
+				 }
 			 }
 		 }
 		 if (!corrected) {
-			 for (auto& c : children) {
-				 if (c->sizeCalculationTemporaryMarker) continue;
-				 c->calculatedWidth = c->widthGrowPoints * spacePerPoint + c->requestedMinWidth;
-			 }
 			 break;
 		 }
+	 }
+	 for (auto& c : children) {
+		 if (c->sizeCalculationTemporaryMarker) continue;
+		 float newWidth = c->widthGrowPoints * spacePerPoint + c->requestedMinWidth;
+		 if (c->calculatedWidth != newWidth) {
+			 c->calculatedWidth = newWidth;
+			 c->recalculateSize(newWidth);
+		 }
+		 c->sizeCalculationTemporaryMarker = true;
+	 }
+	 float offset = 0;
+	 for (auto& c : children) {
+		 c->calculatedXPosition = offset;
+		 offset += c->calculatedWidth;
 	 }
 }
  /*

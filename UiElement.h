@@ -18,23 +18,24 @@
 
 			int relPosX;
 			int relPosY;
-			int width;
+			//int width;
 			int height;
 			bool isPressed = false;
 			bool isChildPressed = false;
 
-			float calculatedWidth;
-			float requestedMinWidth;
-			float requestedMaxWidth;
+			float calculatedXPosition = 0;
+			float calculatedWidth = 0;
+			float requestedMinWidth = 0;
+			float requestedMaxWidth = -1;
 			int widthGrowPoints = 1;
 			//int widthGrowPriority = 0;
 			bool sizeCalculationTemporaryMarker;
 
-			virtual bool onMousePressed(int x, int y, int button) {
+			virtual bool onMousePressed(float x, float y, int button) {
 				isChildPressed = true;
 				for (auto child : this->Children) {
-					int rx = x - child->relPosX;
-					if (rx >= 0 && rx < child->width) {
+					int rx = x - child->calculatedXPosition;
+					if (rx >= 0 && rx < child->calculatedWidth) {
 						int ry = y - child->relPosY;
 						if (ry >= 0 && ry < child->height) {
 							if (child->onMousePressed(rx, ry, button)) return true;
@@ -46,12 +47,12 @@
 			}
 			//virtual bool onMouseReleased(int x, int y, int button);
 
-			virtual bool onMouseReleased(int x, int y, int button) {
+			virtual bool onMouseReleased(float x, float y, int button) {
 				isChildPressed = false;
 				isPressed = false;
 				for (auto child : this->Children) {
-					int rx = x - child->relPosX;
-					if (rx >= 0 && rx < child->width) {
+					int rx = x - child->calculatedXPosition;
+					if (rx >= 0 && rx < child->calculatedWidth) {
 						int ry = y - child->relPosY;
 						if (ry >= 0 && ry < child->height) {
 							if (child->onMouseReleased(rx, ry, button)) return true;
@@ -65,7 +66,7 @@
 			//virtual bool onElementSelected();
 			//virtual bool onElementDeselected();
 			//virtual bool onKey();
-			virtual bool onRender(int parentX, int parentY) = 0;
+			virtual bool onRender(float parentX, float parentY) = 0;
 
 			template<class T> void addChild(std::shared_ptr<T> new_child) {	//	Templates have to be implemented in header files due to how c++ compilers work.
 				static_assert(std::is_base_of_v<UiElement, T>, "Class needs to extend PrefabBase");
@@ -73,7 +74,7 @@
 				this->Children.push_back(child);
 			}
 
-			virtual void recalculateSize() = 0;
+			virtual void recalculateSize(float containerSize) = 0;
 		};
 	//}
 //};
