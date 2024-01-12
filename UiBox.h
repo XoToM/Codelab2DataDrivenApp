@@ -7,16 +7,12 @@
 	//namespace Ui {
 		class UiBox : public UiElement {
 		public:
-			UiBox(int relX, int relY, int height) {// int width,
-				this->relPosX = relX;
-				this->relPosY = relY;
-				//this->width = width;
-				this->height = height;
+			UiBox() {
 			}
 
 			bool onRender(float parentX, float parentY) {
 				float x = parentX + this->calculatedXPosition;
-				float y = parentY + this->relPosY;
+				float y = parentY + this->calculatedYPosition;
 				ofColor randColor;
 				randColor.setHsb(rand() % 360, 128, 128);
 				ofColor altRandColor;
@@ -25,7 +21,7 @@
 				ofSetColor(randColor);
 				if(isPressed) ofSetColor(altRandColor);
 
-				ofDrawRectangle(x, y, this->calculatedWidth, (float)this->height);
+				ofDrawRectangle(x, y, this->calculatedWidth, this->calculatedHeight);
 				for (auto& child : this->Children) {
 					child->onRender(x,y);
 				}
@@ -34,7 +30,7 @@
 			bool onClicked(int button) {
 				return true;
 			}
-			void recalculateSize(float containerSize);
+			void recalculateSize(float containerWidth, float containerHeight);
 		};
 	//}
 //}

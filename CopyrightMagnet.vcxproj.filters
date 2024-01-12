@@ -50,6 +50,9 @@
     <ClCompile Include="uiSpaceAllocator.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="UiPadding.h">
+      <Filter>src\prefabs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -152,6 +155,9 @@
     </ClInclude>
     <ClInclude Include="uiSpaceAllocator.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="UiSpace.h">
+      <Filter>src\prefabs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

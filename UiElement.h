@@ -16,19 +16,19 @@
 			std::vector<std::shared_ptr<UiElement>> Children;
 			boost::optional<std::weak_ptr<UiElement>> Parent = boost::none;
 
-			int relPosX;
-			int relPosY;
-			//int width;
-			int height;
 			bool isPressed = false;
 			bool isChildPressed = false;
 
 			float calculatedXPosition = 0;
+			float calculatedYPosition = 0;
 			float calculatedWidth = 0;
+			float calculatedHeight = 0;
 			float requestedMinWidth = 0;
+			float requestedMinHeight = 0;
 			float requestedMaxWidth = -1;
-			int widthGrowPoints = 1;
-			//int widthGrowPriority = 0;
+			float requestedMaxHeight = -1;
+			int growPoints = 1;
+
 			bool sizeCalculationTemporaryMarker;
 
 			virtual bool onMousePressed(float x, float y, int button) {
@@ -36,8 +36,8 @@
 				for (auto child : this->Children) {
 					int rx = x - child->calculatedXPosition;
 					if (rx >= 0 && rx < child->calculatedWidth) {
-						int ry = y - child->relPosY;
-						if (ry >= 0 && ry < child->height) {
+						int ry = y - child->calculatedYPosition;
+						if (ry >= 0 && ry < child->calculatedHeight) {
 							if (child->onMousePressed(rx, ry, button)) return true;
 						}
 					}
@@ -53,8 +53,8 @@
 				for (auto child : this->Children) {
 					int rx = x - child->calculatedXPosition;
 					if (rx >= 0 && rx < child->calculatedWidth) {
-						int ry = y - child->relPosY;
-						if (ry >= 0 && ry < child->height) {
+						int ry = y - child->calculatedYPosition;
+						if (ry >= 0 && ry < child->calculatedHeight) {
 							if (child->onMouseReleased(rx, ry, button)) return true;
 						}
 					}
@@ -74,7 +74,7 @@
 				this->Children.push_back(child);
 			}
 
-			virtual void recalculateSize(float containerSize) = 0;
+			virtual void recalculateSize(float containerWidth, float containerHeight) = 0;
 		};
 	//}
 //};
