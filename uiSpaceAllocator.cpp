@@ -5,8 +5,6 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 	for (auto& c : children) {
 		minimumWidth += c->requestedMinWidth;
 		c->sizeCalculationTemporaryMarker = false;
-		c->calculatedHeight = std::max(c->requestedMinHeight, containerHeight);
-		if(c->requestedMaxHeight >= 0) c->calculatedHeight = std::min(c->requestedMaxHeight, c->calculatedHeight);
 		//c->calculatedWidth = c->requestedMinWidth;
 	}
 	int growPoints;
@@ -28,8 +26,14 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 				spaceLeft -= (c->requestedMaxWidth - c->requestedMinWidth);
 				float newWidth = c->requestedMaxWidth;
 				c->sizeCalculationTemporaryMarker = true;
-				if (c->calculatedWidth != newWidth) {
+
+
+				float newHeight = std::max(c->requestedMinHeight, containerHeight);
+				if (c->requestedMaxHeight >= 0) c->calculatedHeight = std::min(c->requestedMaxHeight, c->calculatedHeight);
+
+				if (c->calculatedHeight != newHeight || c->calculatedWidth != newWidth) {
 					c->calculatedWidth = newWidth;
+					c->calculatedHeight = newHeight;
 					c->recalculateSize(newWidth, c->calculatedHeight);
 				}
 			}
@@ -41,10 +45,16 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 	for (auto& c : children) {
 		if (c->sizeCalculationTemporaryMarker) continue;
 		float newWidth = c->growPoints * spacePerPoint + c->requestedMinWidth;
-		if (c->calculatedWidth != newWidth) {
+
+		float newHeight = std::max(c->requestedMinHeight, containerHeight);
+		if (c->requestedMaxHeight >= 0) c->calculatedHeight = std::min(c->requestedMaxHeight, c->calculatedHeight);
+
+		if (c->calculatedHeight != newHeight || c->calculatedWidth != newWidth) {
 			c->calculatedWidth = newWidth;
-			c->recalculateSize(newWidth, c->calculatedHeight);
+			c->calculatedHeight = newHeight;
+			c->recalculateSize(c->calculatedWidth, c->calculatedHeight);
 		}
+		
 		c->sizeCalculationTemporaryMarker = true;
 	}
 	float offset = 0;
@@ -59,9 +69,6 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 	for (auto& c : children) {
 		minimumHeight += c->requestedMinHeight;
 		c->sizeCalculationTemporaryMarker = false;
-		//c->calculatedWidth = c->requestedMinWidth;
-		c->calculatedWidth = std::max(c->requestedMinWidth, containerWidth);
-		if (c->requestedMaxWidth >= 0) c->calculatedWidth = std::min(c->requestedMaxWidth, c->calculatedWidth);
 	}
 	int growPoints;
 	float spaceLeft = containerHeight - minimumHeight;
@@ -82,9 +89,14 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 				spaceLeft -= (c->requestedMaxHeight - c->requestedMinHeight);
 				float newHeight = c->requestedMaxHeight;
 				c->sizeCalculationTemporaryMarker = true;
-				if (c->calculatedHeight != newHeight) {
+
+				float newWidth = std::max(c->requestedMinWidth, containerWidth);
+				if (c->requestedMaxWidth >= 0) c->calculatedWidth = std::min(c->requestedMaxWidth, c->calculatedWidth);
+
+				if (c->calculatedHeight != newHeight || c->calculatedWidth != newWidth) {
+					c->calculatedWidth = newWidth;
 					c->calculatedHeight = newHeight;
-					c->recalculateSize(c->calculatedWidth, newHeight);
+					c->recalculateSize(c->calculatedWidth, c->calculatedHeight);
 				}
 			}
 		}
@@ -95,9 +107,13 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 	for (auto& c : children) {
 		if (c->sizeCalculationTemporaryMarker) continue;
 		float newHeight = c->growPoints * spacePerPoint + c->requestedMinHeight;
-		if (c->calculatedHeight != newHeight) {
+		float newWidth = std::max(c->requestedMinWidth, containerWidth);
+		if (c->requestedMaxWidth >= 0) c->calculatedWidth = std::min(c->requestedMaxWidth, c->calculatedWidth);
+
+		if (c->calculatedHeight != newHeight || c->calculatedWidth != newWidth) {
+			c->calculatedWidth = newWidth;
 			c->calculatedHeight = newHeight;
-			c->recalculateSize(c->calculatedWidth, newHeight);
+			c->recalculateSize(c->calculatedWidth, c->calculatedHeight);
 		}
 		c->sizeCalculationTemporaryMarker = true;
 	}

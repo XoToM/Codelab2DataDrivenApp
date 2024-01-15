@@ -4,6 +4,7 @@
 #include "ofApp.h"
 #include "../UiBox.h"
 #include "../UiSpace.h"
+#include "../UiPadding.h"
 #include "ofMain.h"
 
 //--------------------------------------------------------------
@@ -14,9 +15,9 @@ void ofApp::setup(){
 	auto child1 = make_shared<UiBox>(); //150,
 	root->addChild(child1);
 
-	//root->addChild(make_shared<UiPadding>());
+	root->addChild(make_shared<UiSpace>());
 
-	auto child2 = make_shared<UiBox>(); //150,
+	auto child2 = make_shared<UiPadding<UiBox>>(make_shared<UiBox>(),10); //150,
 	root->addChild(child2);
 
 	root->addChild(make_shared<UiSpace>());
