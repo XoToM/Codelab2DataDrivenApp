@@ -3,31 +3,36 @@
 #include "../UiElement.h"
 #include "ofApp.h"
 #include "../UiBox.h"
+#include "../UiButton.h"
 #include "../UiSpace.h"
 #include "../UiPadding.h"
 #include "ofMain.h"
+#include "../ResourceManager.h"
+#include "../UiText.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 	//using namespace PokeApp::Ui;
 
-	root = make_shared<UiBox>(); // 500,
-	auto child1 = make_shared<UiBox>(); //150,
+	root = make_shared<UiBox>(false); // 500,
+	auto child1 = make_shared<UiButton>(); //150,
 	root->addChild(child1);
 
 	root->addChild(make_shared<UiSpace>());
 
-	auto child2 = make_shared<UiPadding<UiBox>>(make_shared<UiBox>(),10); //150,
+	auto child2 = make_shared<UiPadding<UiButton>>(make_shared<UiButton>(),10); //150,
 	root->addChild(child2);
 
 	root->addChild(make_shared<UiSpace>());
 
-	auto child3 = make_shared<UiBox>(); //150,
+	auto child3 = make_shared<UiButton>(); //150,
 	root->addChild(child3);
+	root->addChild(make_shared<UiText>("Hello World!"));
 
 	child2->growPoints = 5;
 	child3->growPoints = 0;
 	child3->requestedMinWidth = 100;
+	child3->requestedMinHeight = 100;
 
 	root->recalculateSize(500, 500);
 }
@@ -40,7 +45,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofClear(ofColor::black);
-	srand(155555555555);
+	srand(155555555554);
 	root->onRender(0,0);
 }
 

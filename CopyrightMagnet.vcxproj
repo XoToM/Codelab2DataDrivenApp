@@ -181,6 +181,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
@@ -199,8 +200,10 @@
     <ClCompile Include="UiElement.cpp" />
     <ClCompile Include="UiPadding.h" />
     <ClCompile Include="uiSpaceAllocator.cpp" />
+    <ClCompile Include="UiText.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="UiButton.h" />
     <ClInclude Include="UiElement.h" />
     <ClInclude Include="src\ofApp.h" />

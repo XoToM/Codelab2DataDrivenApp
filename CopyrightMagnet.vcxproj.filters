@@ -53,6 +53,12 @@
     <ClCompile Include="UiPadding.h">
       <Filter>src\prefabs</Filter>
     </ClCompile>
+    <ClCompile Include="UiText.h">
+      <Filter>src\prefabs</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -158,6 +164,9 @@
     </ClInclude>
     <ClInclude Include="UiSpace.h">
       <Filter>src\prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

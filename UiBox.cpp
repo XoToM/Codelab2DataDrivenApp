@@ -3,5 +3,10 @@
 #include "UiBox.h"
 
 void UiBox::recalculateSize(float containerWidth, float containerHeight) {
-	calculateSizeOnXAxis(containerWidth, containerHeight, this->Children);
+	if (this->isHorizontal) {
+		calculateSizeOnXAxis(containerWidth, containerHeight, this->Children);
+	}
+	else {
+		calculateSizeOnYAxis(containerWidth, containerHeight, this->Children);
+	}
 }
