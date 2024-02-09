@@ -23,4 +23,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		//PokeApp::Ui::
 		std::shared_ptr<UiBox> root;
+		int lastKnownWidth = 0;
+		int lastKnownHeight = 0;
 };
