@@ -6,6 +6,8 @@
 class ofApp : public ofBaseApp{
 
 	public:
+		ofTrueTypeFont titleFont;
+
 		void setup();
 		void update();
 		void draw();

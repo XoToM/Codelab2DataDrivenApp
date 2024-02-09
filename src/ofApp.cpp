@@ -7,33 +7,39 @@
 #include "../UiSpace.h"
 #include "../UiPadding.h"
 #include "ofMain.h"
-#include "../ResourceManager.h"
 #include "../UiText.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	//using namespace PokeApp::Ui;
+	//	Load Fonts
+
+
+	titleFont.load("fonts/crunch chips.otf", 40);
+
+	//	Initialize the User Interface
 
 	root = make_shared<UiBox>(false); // 500,
 	auto child1 = make_shared<UiButton>(); //150,
+	child1->addChild(make_shared<UiText>("Left", &titleFont, 255, 255, 255, UiText::FontAlignment::Left));
 	root->addChild(child1);
 
 	root->addChild(make_shared<UiSpace>());
 
 	auto child2 = make_shared<UiPadding<UiButton>>(make_shared<UiButton>(),10); //150,
+	child2->addChild(make_shared<UiText>("Center", &titleFont, 255, 255, 255, UiText::FontAlignment::Center));
 	root->addChild(child2);
 
 	root->addChild(make_shared<UiSpace>());
 
 	auto child3 = make_shared<UiButton>(); //150,
+	child3->addChild(make_shared<UiText>("Right", &titleFont, 255, 255, 255, UiText::FontAlignment::Right));
 	root->addChild(child3);
-	root->addChild(make_shared<UiText>("Hello World!"));
+	root->addChild(make_shared<UiText>("Hello World!", &titleFont, 255,255,255));
 
 	child2->growPoints = 5;
 	child3->growPoints = 0;
 	child3->requestedMinWidth = 100;
 	child3->requestedMinHeight = 100;
-
 }
 
 //--------------------------------------------------------------
@@ -43,12 +49,12 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	auto window_size = ofGetWindowSize();
-	if (lastKnownWidth != window_size.x || lastKnownHeight != window_size.y) {
-		lastKnownWidth = window_size.x;
-		lastKnownHeight = window_size.y;
-		root->recalculateSize(lastKnownWidth, lastKnownHeight);
+	auto windowSize = ofGetWindowSize();
+	if (lastKnownWidth != ofGetWidth() || lastKnownHeight != ofGetHeight()) {
+		lastKnownWidth = ofGetWidth();
+		lastKnownHeight = ofGetHeight();
 	}
+	root->recalculateSize(lastKnownWidth, lastKnownHeight);
 	ofClear(ofColor::black);
 	srand(155555555554);
 	root->onRender(0,0);

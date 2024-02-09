@@ -49,17 +49,14 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\ResourceManager.cpp">
-      <Filter>src\main</Filter>
+    <ClCompile Include="UiElement.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiBox.cpp">
-      <Filter>src\main</Filter>
+    <ClCompile Include="uiSpaceAllocator.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiElement.cpp">
-      <Filter>src\main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\uiSpaceAllocator.cpp">
-      <Filter>src\main</Filter>
+    <ClCompile Include="UiBox.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,9 +92,6 @@
     </Filter>
     <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
       <UniqueIdentifier>{6D569A5B-6719-AEFD-C08E-5CE5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\main">
-      <UniqueIdentifier>{17ec71de-0715-4db0-a1d3-df4bdf64930f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -155,29 +149,26 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h">
       <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\ResourceManager.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="UiElement.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiBox.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="UiPadding.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiButton.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="UiSpace.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiElement.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="uiSpaceAllocator.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiPadding.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="UiText.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiSpace.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="UiBox.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\uiSpaceAllocator.h">
-      <Filter>src\main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiText.h">
-      <Filter>src\main</Filter>
+    <ClInclude Include="UiButton.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

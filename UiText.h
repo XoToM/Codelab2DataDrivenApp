@@ -1,20 +1,47 @@
 #pragma once
 #include <stdlib.h>
 #include "UiElement.h"
-#include "ResourceManager.h"
 
 //namespace PokeApp {
 	//namespace Ui {
 class UiText : public UiElement {
 public:
+	enum class FontAlignment { Left, Center, Right };
+
 	string text;
-	UiText(string text) {
-		ResourceManager::InitResourceManager();
+	ofTrueTypeFont* pFont;
+	int Red;
+	int Green;
+	int Blue;
+	FontAlignment textAlignment;
+
+
+	UiText(string text, ofTrueTypeFont* pTextFont, int r=0, int g=0, int b=0, FontAlignment alignment=FontAlignment::Left) {
 		this->text = text;
+		this->pFont = pTextFont;
+		Red = r;
+		Green = g;
+		Blue = b;
+		textAlignment = alignment;
 	}
 
 	bool onRender(float parentX, float parentY) {
-		ResourceManager::getDefaultFont().drawString("test", calculatedXPosition, calculatedYPosition);
+		ofSetColor(this->Red, this->Green, this->Blue);
+		auto textBoundingBox = pFont->getStringBoundingBox(this->text, 0,0);
+
+		float textXPosition = parentX + calculatedXPosition;
+		switch (this->textAlignment) {
+			case FontAlignment::Left:
+				break;
+			case FontAlignment::Right:
+				textXPosition += this->calculatedWidth - textBoundingBox.getWidth();
+				break;
+			case FontAlignment::Center:
+				textXPosition += this->calculatedWidth/2 - textBoundingBox.getWidth()/2;
+				break;
+		}
+
+		pFont->drawString(this->text, textXPosition, parentY + calculatedYPosition + textBoundingBox.getHeight());
 		return true;
 	}
 	bool onClicked(int button) {

@@ -180,10 +180,6 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\ResourceManager.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiBox.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiElement.cpp" />
-    <ClCompile Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\uiSpaceAllocator.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
@@ -198,16 +194,11 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
+    <ClCompile Include="UiBox.cpp" />
+    <ClCompile Include="UiElement.cpp" />
+    <ClCompile Include="uiSpaceAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\ResourceManager.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiBox.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiButton.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiElement.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiPadding.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiSpace.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\uiSpaceAllocator.h" />
-    <ClInclude Include="..\..\..\..\..\source\repos\XoToM\Codelab2DataDrivenApp\src\UiText.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
@@ -225,6 +216,13 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
+    <ClInclude Include="UiBox.h" />
+    <ClInclude Include="UiButton.h" />
+    <ClInclude Include="UiElement.h" />
+    <ClInclude Include="UiPadding.h" />
+    <ClInclude Include="UiSpace.h" />
+    <ClInclude Include="uiSpaceAllocator.h" />
+    <ClInclude Include="UiText.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
