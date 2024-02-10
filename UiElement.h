@@ -103,8 +103,6 @@
 
 			virtual void recalculateSize(float containerWidth, float containerHeight);
 
-		protected:
-			void defaultSpaceAllocator(float containerWidth, float containerHeight);
 		};
 	//}
 //};
