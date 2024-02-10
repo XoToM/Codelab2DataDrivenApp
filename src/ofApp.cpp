@@ -8,6 +8,12 @@
 #include "ui/UiSpace.h"
 #include "ofMain.h"
 #include "ui/UiText.h"
+#include "screens/ScreenError.h"
+
+
+ofTrueTypeFont ofApp::titleFont;
+ofTrueTypeFont ofApp::normalFont;
+std::shared_ptr<UiRoot> ofApp::root;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -15,26 +21,28 @@ void ofApp::setup(){
 
 
 	titleFont.load("fonts/crunch chips.otf", 40);	//	https://www.dafont.com/crunch-chips.font
+	titleFont.load("fonts/coolvetica rg.otf", 20);	//	https://www.dafont.com/coolvetica.font
 
 	//	Initialize the User Interface
 
 	root = make_shared<UiRoot>();	//	Create the root element and initialize it.
-	UiRoot::calculateHoveredElement(root,-1,-1);
+	UiRoot::calculateHoveredElement(root, -1, -1);
 
-	auto child1 = make_shared<UiButton>(); //150,
+
+	auto child1 = make_shared<UiButton>([]() {std::cout << "Left" << std::endl; }); //150,
 	child1->addChild(make_shared<UiText>("Left", &titleFont, 255, 255, 255, UiText::FontAlignment::Left));
 	root->addChild(child1);
 
 	root->addChild(make_shared<UiSpace>());
 
-	auto child2 = make_shared<UiButton>(); //150,
+	auto child2 = make_shared<UiButton>([]() {std::cout << "Center" << std::endl; }); //150,
 	child2->setMargins(10,10,10,100);
-	child2->addChild(make_shared<UiText>("This is a piece of a very very long text which should be centered, but it should also wrap around the edge of this element.", &titleFont, 255, 255, 255, UiText::FontAlignment::Center));
+	child2->addChild(make_shared<UiText>("This is a piece of a very very long text which should be centered, but it should also wrap around the edge of this button.", &titleFont, 255, 255, 255, UiText::FontAlignment::Center));
 	root->addChild(child2);
 
 	root->addChild(make_shared<UiSpace>());
 
-	auto child3 = make_shared<UiButton>(); //150,
+	auto child3 = make_shared<UiButton>([]() {std::cout << "Right" << std::endl; }); //150,
 	child3->addChild(make_shared<UiText>("Right", &titleFont, 255, 255, 255, UiText::FontAlignment::Right));
 	root->addChild(child3);
 	root->addChild(make_shared<UiText>("Hello, World!", &titleFont, 255,255,255));
@@ -47,7 +55,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	root->onUpdate();
 }
 
 //--------------------------------------------------------------
@@ -70,7 +78,7 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+	root->switchScreens(make_shared<ScreenError>());
 }
 
 //--------------------------------------------------------------
@@ -94,7 +102,6 @@ void ofApp::mousePressed(int x, int y, int button){
 		UiRoot::isRightMouseDown = true;
 		break;
 	}
-	UiRoot::isLeftMouseDown = true;
 	root->onMousePressed(x, y, button);
 }
 

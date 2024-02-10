@@ -6,8 +6,10 @@
 class ofApp : public ofBaseApp{
 
 	public:
-		ofTrueTypeFont titleFont;
-		std::shared_ptr<UiRoot> root;
+		static ofTrueTypeFont titleFont;
+		static ofTrueTypeFont normalFont;
+		static std::shared_ptr<UiRoot> root;
+
 		int lastKnownWidth = 0;
 		int lastKnownHeight = 0;
 

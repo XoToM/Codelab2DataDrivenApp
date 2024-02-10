@@ -96,11 +96,15 @@
 			}
 
 			virtual bool onRender(float parentX, float parentY) = 0;
+			virtual void onUpdate() {
+				for (auto child : this->Children) child->onUpdate();
+			}
 
-			template<class T> void addChild(std::shared_ptr<T> new_child) {	//	Templates have to be implemented in header files due to how c++ compilers work.
+			template<class T> std::shared_ptr<T> addChild(std::shared_ptr<T> new_child) {	//	Templates have to be implemented in header files due to how c++ compilers work.
 				static_assert(std::is_base_of_v<UiElement, T>, "Class needs to extend PrefabBase");
 				std::shared_ptr<UiElement> child = std::static_pointer_cast<UiElement, T>(new_child);
 				this->Children.push_back(child);
+				return new_child;
 			}
 
 			virtual void recalculateSize(float containerWidth, float containerHeight);

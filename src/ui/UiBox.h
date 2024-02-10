@@ -22,15 +22,6 @@
 				float x = parentX + this->calculatedXPosition;
 				float y = parentY + this->calculatedYPosition;
 
-				/*
-				ofColor randColor;
-				randColor.setHsb(rand() % 360, 128, 128);
-				ofColor altRandColor;
-				altRandColor.setHsb(rand() % 360, 128, 128);
-
-				ofSetColor(randColor);
-				if(isPressed) ofSetColor(altRandColor);
-				//*/
 				bool render = false;
 
 				if (defaultColor) {

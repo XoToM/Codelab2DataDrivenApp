@@ -5,24 +5,19 @@
 #include "ofMain.h"
 #include <functional>
 
-//namespace PokeApp {
-	//namespace Ui {
 class UiButton : public virtual UiBox {
 public:
+	std::function<void()> onButtonClicked;
 
-	UiButton() : UiBox() {
+	UiButton(std::function<void()> onButtonClicked) : UiBox() {
+		this->onButtonClicked = onButtonClicked;
 	}
 
 	bool onClicked(int button) {
+		this->onButtonClicked();
 		return true;
 	}
 	bool isActive() {
-		return isHoveredOver() && UiRoot::isLeftMouseDown;
+		return isHoveredOver() && (UiRoot::isLeftMouseDown || UiRoot::isRightMouseDown);
 	}
-	/*
-	void recalculateSize(float containerWidth, float containerHeight) {
-		defaultSpaceAllocator(containerWidth, containerHeight);
-	}*/
 };
-//}
-//}

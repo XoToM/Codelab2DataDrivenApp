@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "UiElement.h"
 
-//namespace PokeApp {
-	//namespace Ui {
 class UiSpace : public virtual UiElement {
 public:
 	UiSpace(float minWidth = 0, int widthGrow = 1, float maxWidth = -1) : UiElement() {
@@ -17,5 +15,3 @@ public:
 	}
 	void recalculateSize(float containerWidth, float containerHeight) {}
 };
-//}
-//}
