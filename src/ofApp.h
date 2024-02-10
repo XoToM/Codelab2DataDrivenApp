@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "../UiRoot.h"
+#include "ui/UiRoot.h"
 
 class ofApp : public ofBaseApp{
 

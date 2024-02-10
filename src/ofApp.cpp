@@ -1,13 +1,13 @@
 
 #include <stdlib.h>
-#include "../UiElement.h"
+#include "ui/UiElement.h"
 #include "ofApp.h"
-#include "../UiBox.h"
-#include "../UiRoot.h"
-#include "../UiButton.h"
-#include "../UiSpace.h"
+#include "ui/UiBox.h"
+#include "ui/UiRoot.h"
+#include "ui/UiButton.h"
+#include "ui/UiSpace.h"
 #include "ofMain.h"
-#include "../UiText.h"
+#include "ui/UiText.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){

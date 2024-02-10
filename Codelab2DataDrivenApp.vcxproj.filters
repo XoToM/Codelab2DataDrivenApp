@@ -49,17 +49,17 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
     </ClCompile>
-    <ClCompile Include="UiElement.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\ui\UiBox.cpp">
+      <Filter>src\ui</Filter>
     </ClCompile>
-    <ClCompile Include="uiSpaceAllocator.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\ui\UiElement.cpp">
+      <Filter>src\ui</Filter>
     </ClCompile>
-    <ClCompile Include="UiBox.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\ui\UiRoot.cpp">
+      <Filter>src\ui</Filter>
     </ClCompile>
-    <ClCompile Include="UiRoot.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\ui\uiSpaceAllocator.cpp">
+      <Filter>src\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +95,9 @@
     </Filter>
     <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
       <UniqueIdentifier>{6D569A5B-6719-AEFD-C08E-5CE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui">
+      <UniqueIdentifier>{2c0794ee-2ef0-4dbc-8d54-e6683490e4a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -152,29 +155,29 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h">
       <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
     </ClInclude>
-    <ClInclude Include="UiElement.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiBox.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="UiPadding.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiButton.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="UiSpace.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiElement.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="uiSpaceAllocator.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiPadding.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="UiText.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiRoot.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="UiBox.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiSpace.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="UiButton.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\uiSpaceAllocator.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="UiRoot.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ui\UiText.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
