@@ -104,6 +104,7 @@
 				static_assert(std::is_base_of_v<UiElement, T>, "Class needs to extend PrefabBase");
 				std::shared_ptr<UiElement> child = std::static_pointer_cast<UiElement, T>(new_child);
 				this->Children.push_back(child);
+				this->recalculateSize(this->calculatedWidth, this->calculatedHeight);
 				return new_child;
 			}
 

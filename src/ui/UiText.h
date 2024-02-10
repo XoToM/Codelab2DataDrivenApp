@@ -103,6 +103,7 @@ public:
 			}
 			if (wordWrappedLine.length() > 0 && wordWrappedLine[wordWrappedLine.length() - 1] == ' ') wordWrappedLine.pop_back();	//	Remove the last space of the string, since the extra space added by this algorithm could mess with how the text is centered.
 			wordWrappedTextLines.push_back(wordWrappedLine);
+			wordWrappedLine = "";
 		}
 	}
 	string getText() {

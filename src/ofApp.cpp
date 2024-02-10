@@ -20,8 +20,8 @@ void ofApp::setup(){
 	//	Load Fonts
 
 
-	titleFont.load("fonts/crunch chips.otf", 40);	//	https://www.dafont.com/crunch-chips.font
-	titleFont.load("fonts/coolvetica rg.otf", 20);	//	https://www.dafont.com/coolvetica.font
+	std::cout << "Font \"crunch chips\" loaded? " << titleFont.load("fonts/crunch chips.otf", 40) << std::endl;	//	https://www.dafont.com/crunch-chips.font
+	std::cout << "Font \"coolvetica rg\" loaded? " << normalFont.load("fonts/coolvetica rg.otf", 20) << std::endl;	//	https://www.dafont.com/coolvetica.font
 
 	//	Initialize the User Interface
 
@@ -64,8 +64,8 @@ void ofApp::draw(){
 	if (lastKnownWidth != ofGetWidth() || lastKnownHeight != ofGetHeight()) {
 		lastKnownWidth = ofGetWidth();
 		lastKnownHeight = ofGetHeight();
+		root->recalculateSize(lastKnownWidth, lastKnownHeight);
 	}
-	root->recalculateSize(lastKnownWidth, lastKnownHeight);
 	ofClear(ofColor::black);
 	srand(155555555554);
 	root->onRender(0,0);
@@ -78,7 +78,6 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-	root->switchScreens(make_shared<ScreenError>());
 }
 
 //--------------------------------------------------------------

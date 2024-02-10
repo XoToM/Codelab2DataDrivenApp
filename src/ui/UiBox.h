@@ -13,9 +13,6 @@
 
 			UiBox(UiElement::ElementOrientation orientation = UiElement::ElementOrientation::Horizontal) : UiElement() {
 				this->ContentOrientation = orientation;
-				defaultColor = ofColor(255, 0, 0);
-				hoverColor = ofColor(0, 0, 255);
-				activeColor = ofColor(0, 255, 0);
 			}
 
 			bool onRender(float parentX, float parentY) {

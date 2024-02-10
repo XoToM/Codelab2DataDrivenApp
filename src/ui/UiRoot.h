@@ -19,5 +19,6 @@ public:
 	template<class T> void switchScreens(std::shared_ptr<T> nextScreen) {
 		this->Children.clear();
 		this->addChild(nextScreen);
+		this->recalculateSize(ofGetWidth(), ofGetHeight());
 	}
 };
