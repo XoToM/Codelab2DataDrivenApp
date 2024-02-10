@@ -5,10 +5,10 @@
 
 //namespace PokeApp {
 	//namespace Ui {
-		class UiBox : public UiElement {
+		class UiBox : public virtual UiElement {
 		public:
 			bool isHorizontal;
-			UiBox(bool isHorizontal) {
+			UiBox(bool isHorizontal) : UiElement() {
 				this->isHorizontal = isHorizontal;
 			}
 
@@ -33,7 +33,6 @@
 			bool onClicked(int button) {
 				return true;
 			}
-			void recalculateSize(float containerWidth, float containerHeight);
 			
 		};
 	//}

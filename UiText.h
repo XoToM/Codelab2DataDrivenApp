@@ -4,7 +4,7 @@
 
 //namespace PokeApp {
 	//namespace Ui {
-class UiText : public UiElement {
+class UiText : public virtual UiElement {
 public:
 	enum class FontAlignment { Left, Center, Right };
 
@@ -16,7 +16,7 @@ public:
 	FontAlignment textAlignment;
 
 
-	UiText(string text, ofTrueTypeFont* pTextFont, int r=0, int g=0, int b=0, FontAlignment alignment=FontAlignment::Left) {
+	UiText(string text, ofTrueTypeFont* pTextFont, int r=0, int g=0, int b=0, FontAlignment alignment=FontAlignment::Left) : UiElement() {
 		this->text = text;
 		this->pFont = pTextFont;
 		Red = r;
@@ -53,7 +53,6 @@ public:
 	bool onMouseReleased(float x, float y, int button) {
 		return false;
 	}
-	void recalculateSize(float containerWidth, float containerHeight) {}
 };
 //}
 //}

@@ -7,9 +7,9 @@
 
 //namespace PokeApp {
 	//namespace Ui {
-class UiButton : public UiElement {
+class UiButton : public virtual UiElement {
 public:
-	UiButton() {
+	UiButton() : UiElement() {
 	}
 
 	bool onRender(float parentX, float parentY) {
@@ -32,17 +32,10 @@ public:
 	bool onClicked(int button) {
 		return true;
 	}
+	/*
 	void recalculateSize(float containerWidth, float containerHeight) {
-		for (auto c : this->Children) {
-			c->calculatedXPosition = calculatedXPosition;
-			c->calculatedYPosition = calculatedYPosition;
-			c->calculatedBoxWidth = calculatedBoxWidth;
-			c->calculatedBoxHeight = calculatedBoxHeight;
-			c->calculatedWidth = calculatedWidth;
-			c->calculatedHeight = calculatedHeight;
-			c->recalculateSize(containerWidth, containerHeight);
-		}
-	}
+		defaultSpaceAllocator(containerWidth, containerHeight);
+	}*/
 };
 //}
 //}

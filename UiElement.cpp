@@ -3,5 +3,12 @@
 #include "uiSpaceAllocator.h"
 
 void UiElement::recalculateSize(float containerWidth, float containerHeight) {
-	calculateSizeOnXAxis(containerWidth, containerHeight, this->Children);
+	switch (this->ContentOrientation) {
+	case ElementOrientation::Horizontal:
+		calculateSizeOnXAxis(containerWidth, containerHeight, this->Children);
+		break;
+	case ElementOrientation::Vertical:
+		calculateSizeOnYAxis(containerWidth, containerHeight, this->Children);
+		break;
+	}
 }

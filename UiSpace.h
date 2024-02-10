@@ -4,9 +4,9 @@
 
 //namespace PokeApp {
 	//namespace Ui {
-class UiSpace : public UiElement {
+class UiSpace : public virtual UiElement {
 public:
-	UiSpace(float minWidth = 0, int widthGrow = 1, float maxWidth = -1) {
+	UiSpace(float minWidth = 0, int widthGrow = 1, float maxWidth = -1) : UiElement() {
 		this->minWidth = minWidth;
 		this->maxWidth = maxWidth;
 		this->growFactor = widthGrow;
@@ -14,15 +14,6 @@ public:
 
 	bool onRender(float parentX, float parentY) {
 		return true;
-	}
-	bool onClicked(int button) {
-		return false;
-	}
-	bool onMousePressed(float x, float y, int button) {
-		return false;
-	}
-	bool onMouseReleased(float x, float y, int button) {
-		return false;
 	}
 	void recalculateSize(float containerWidth, float containerHeight) {}
 };

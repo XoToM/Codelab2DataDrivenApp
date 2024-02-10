@@ -44,6 +44,8 @@
 			float marginUp = 0;
 			float marginDown = 0;
 
+			ElementOrientation ContentOrientation = ElementOrientation::Vertical;
+
 			void setMargins(float up=-1, float right=-1, float down=-1, float left=-1) {
 
 				if (up < 0) up = 0;
@@ -87,7 +89,9 @@
 
 				return this->onClicked(button);
 			}
-			virtual bool onClicked(int button) = 0;
+			virtual bool onClicked(int button) { 
+				return false;
+			}
 
 			virtual bool onRender(float parentX, float parentY) = 0;
 
@@ -97,7 +101,10 @@
 				this->Children.push_back(child);
 			}
 
-			virtual void recalculateSize(float containerWidth, float containerHeight) = 0;
+			virtual void recalculateSize(float containerWidth, float containerHeight);
+
+		protected:
+			void defaultSpaceAllocator(float containerWidth, float containerHeight);
 		};
 	//}
 //};
