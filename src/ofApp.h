@@ -1,12 +1,15 @@
 #pragma once
 
 #include "ofMain.h"
-#include "../UiBox.h"
+#include "../UiRoot.h"
 
 class ofApp : public ofBaseApp{
 
 	public:
 		ofTrueTypeFont titleFont;
+		std::shared_ptr<UiRoot> root;
+		int lastKnownWidth = 0;
+		int lastKnownHeight = 0;
 
 		void setup();
 		void update();
@@ -23,8 +26,4 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		//PokeApp::Ui::
-		std::shared_ptr<UiBox> root;
-		int lastKnownWidth = 0;
-		int lastKnownHeight = 0;
 };

@@ -3,6 +3,7 @@
 #include "../UiElement.h"
 #include "ofApp.h"
 #include "../UiBox.h"
+#include "../UiRoot.h"
 #include "../UiButton.h"
 #include "../UiSpace.h"
 #include "ofMain.h"
@@ -13,11 +14,13 @@ void ofApp::setup(){
 	//	Load Fonts
 
 
-	titleFont.load("fonts/crunch chips.otf", 40);
+	titleFont.load("fonts/crunch chips.otf", 40);	//	https://www.dafont.com/crunch-chips.font
 
 	//	Initialize the User Interface
 
-	root = make_shared<UiBox>(false); // 500,
+	root = make_shared<UiRoot>();	//	Create the root element and initialize it.
+	UiRoot::calculateHoveredElement(root,-1,-1);
+
 	auto child1 = make_shared<UiButton>(); //150,
 	child1->addChild(make_shared<UiText>("Left", &titleFont, 255, 255, 255, UiText::FontAlignment::Left));
 	root->addChild(child1);
@@ -72,37 +75,56 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+	UiRoot::calculateHoveredElement(root, (float)x, (float)y);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+	UiRoot::calculateHoveredElement(root, (float)x, (float)y);
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+	UiRoot::calculateHoveredElement(root, (float)x, (float)y);
+	switch (button) {
+	case 0:
+		UiRoot::isLeftMouseDown = true;
+		break;
+	case 2:
+		UiRoot::isRightMouseDown = true;
+		break;
+	}
+	UiRoot::isLeftMouseDown = true;
 	root->onMousePressed(x, y, button);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
+	UiRoot::calculateHoveredElement(root, (float)x, (float)y);
+	switch (button) {
+		case 0:
+			UiRoot::isLeftMouseDown = false;
+			break;
+		case 2:
+			UiRoot::isRightMouseDown = false;
+			break;
+	}
 	root->onMouseReleased(x, y, button);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
-
+	UiRoot::calculateHoveredElement(root, (float)x, (float)y);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
-
+	UiRoot::calculateHoveredElement(root, -1, -1);
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-	//root->recalculateSize((float)w, (float)h);
+	UiRoot::calculateHoveredElement(root, (float)ofGetMouseX(), (float)ofGetMouseY());
 }
 
 //--------------------------------------------------------------
