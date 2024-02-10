@@ -7,9 +7,9 @@
 class UiSpace : public UiElement {
 public:
 	UiSpace(float minWidth = 0, int widthGrow = 1, float maxWidth = -1) {
-		this->requestedMinWidth = minWidth;
-		this->requestedMaxWidth = maxWidth;
-		this->growPoints = widthGrow;
+		this->minWidth = minWidth;
+		this->maxWidth = maxWidth;
+		this->growFactor = widthGrow;
 	}
 
 	bool onRender(float parentX, float parentY) {

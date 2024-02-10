@@ -34,10 +34,10 @@ public:
 			case FontAlignment::Left:
 				break;
 			case FontAlignment::Right:
-				textXPosition += this->calculatedWidth - textBoundingBox.getWidth();
+				textXPosition += this->calculatedBoxWidth - textBoundingBox.getWidth();
 				break;
 			case FontAlignment::Center:
-				textXPosition += this->calculatedWidth/2 - textBoundingBox.getWidth()/2;
+				textXPosition += this->calculatedBoxWidth/2 - textBoundingBox.getWidth()/2;
 				break;
 		}
 

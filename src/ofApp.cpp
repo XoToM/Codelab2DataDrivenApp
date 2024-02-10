@@ -5,7 +5,6 @@
 #include "../UiBox.h"
 #include "../UiButton.h"
 #include "../UiSpace.h"
-#include "../UiPadding.h"
 #include "ofMain.h"
 #include "../UiText.h"
 
@@ -25,7 +24,8 @@ void ofApp::setup(){
 
 	root->addChild(make_shared<UiSpace>());
 
-	auto child2 = make_shared<UiPadding<UiButton>>(make_shared<UiButton>(),10); //150,
+	auto child2 = make_shared<UiButton>(); //150,
+	child2->setMargins(10);
 	child2->addChild(make_shared<UiText>("Center", &titleFont, 255, 255, 255, UiText::FontAlignment::Center));
 	root->addChild(child2);
 
@@ -36,10 +36,10 @@ void ofApp::setup(){
 	root->addChild(child3);
 	root->addChild(make_shared<UiText>("Hello World!", &titleFont, 255,255,255));
 
-	child2->growPoints = 5;
-	child3->growPoints = 0;
-	child3->requestedMinWidth = 100;
-	child3->requestedMinHeight = 100;
+	child2->growFactor = 5;
+	child3->growFactor = 0;
+	child3->minWidth = 100;
+	child3->minHeight = 100;
 }
 
 //--------------------------------------------------------------

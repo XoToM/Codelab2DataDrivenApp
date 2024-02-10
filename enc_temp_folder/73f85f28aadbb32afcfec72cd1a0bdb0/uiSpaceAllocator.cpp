@@ -1,6 +1,5 @@
 #include "UiElement.h"
 
-
 void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vector<std::shared_ptr<UiElement>> children) {
 	auto minimumWidth = 0;
 	for (auto& c : children) {

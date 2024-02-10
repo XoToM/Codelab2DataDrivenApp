@@ -1,4 +1,5 @@
 #pragma once
+
 #include <stdlib.h>
 #include "UiElement.h"
 #include "ofMain.h"
@@ -35,6 +36,8 @@ public:
 		for (auto c : this->Children) {
 			c->calculatedXPosition = calculatedXPosition;
 			c->calculatedYPosition = calculatedYPosition;
+			c->calculatedBoxWidth = calculatedBoxWidth;
+			c->calculatedBoxHeight = calculatedBoxHeight;
 			c->calculatedWidth = calculatedWidth;
 			c->calculatedHeight = calculatedHeight;
 			c->recalculateSize(containerWidth, containerHeight);
