@@ -25,8 +25,8 @@ void ofApp::setup(){
 	root->addChild(make_shared<UiSpace>());
 
 	auto child2 = make_shared<UiButton>(); //150,
-	child2->setMargins(10);
-	child2->addChild(make_shared<UiText>("Center", &titleFont, 255, 255, 255, UiText::FontAlignment::Center));
+	child2->setMargins(10,10,10,100);
+	child2->addChild(make_shared<UiText>("This is a piece of a very very long text which should be centered, but it should also wrap around the edge of this element.", &titleFont, 255, 255, 255, UiText::FontAlignment::Center));
 	root->addChild(child2);
 
 	root->addChild(make_shared<UiSpace>());
@@ -34,7 +34,7 @@ void ofApp::setup(){
 	auto child3 = make_shared<UiButton>(); //150,
 	child3->addChild(make_shared<UiText>("Right", &titleFont, 255, 255, 255, UiText::FontAlignment::Right));
 	root->addChild(child3);
-	root->addChild(make_shared<UiText>("Hello World!", &titleFont, 255,255,255));
+	root->addChild(make_shared<UiText>("Hello, World!", &titleFont, 255,255,255));
 
 	child2->growFactor = 5;
 	child3->growFactor = 0;

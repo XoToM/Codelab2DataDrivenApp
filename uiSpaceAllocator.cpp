@@ -34,7 +34,7 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 				if (c->calculatedBoxHeight != newHeight || c->calculatedBoxWidth != newWidth) {
 					c->calculatedBoxWidth = newWidth;
 					c->calculatedBoxHeight = newHeight;
-					c->recalculateSize(newWidth, c->calculatedBoxHeight);
+					c->recalculateSize(newWidth, newHeight);
 				}
 			}
 		}
@@ -52,7 +52,7 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 		if (c->calculatedBoxHeight != newHeight || c->calculatedBoxWidth != newWidth) {
 			c->calculatedBoxWidth = newWidth;
 			c->calculatedBoxHeight = newHeight;
-			c->recalculateSize(c->calculatedBoxWidth, c->calculatedBoxHeight);
+			c->recalculateSize(newWidth, newHeight);
 		}
 		
 		c->sizeCalculationDoneEarly = true;
@@ -100,7 +100,7 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 				if (c->calculatedBoxHeight != newHeight || c->calculatedBoxWidth != newWidth) {
 					c->calculatedBoxWidth = newWidth;
 					c->calculatedBoxHeight = newHeight;
-					c->recalculateSize(c->calculatedBoxWidth, c->calculatedBoxHeight);
+					c->recalculateSize(newWidth, newHeight);
 				}
 			}
 		}
@@ -117,7 +117,7 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 		if (c->calculatedBoxHeight != newHeight || c->calculatedBoxWidth != newWidth) {
 			c->calculatedBoxWidth = newWidth;
 			c->calculatedBoxHeight = newHeight;
-			c->recalculateSize(c->calculatedBoxWidth, c->calculatedBoxHeight);
+			c->recalculateSize(newWidth, newHeight);
 		}
 		c->sizeCalculationDoneEarly = true;
 	}
