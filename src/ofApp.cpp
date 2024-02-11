@@ -6,9 +6,11 @@
 
 
 ofTrueTypeFont ofApp::titleFont;
+ofTrueTypeFont ofApp::titleHighlightFont;
 ofTrueTypeFont ofApp::subTitleFont;
 ofTrueTypeFont ofApp::normalFont;
 shared_ptr<UiElement> ofApp::root;
+weak_ptr<UiElement> ofApp::hoveredElement;
 ofApp* ofApp::mainApp;
 
 //--------------------------------------------------------------
@@ -16,9 +18,9 @@ void ofApp::setup(){
 	mainApp = this;
 	//	Load Fonts
 
-	std::cout << "Font \"crunch chips\" 40px loaded? " << titleFont.load("fonts/crunch chips.otf", 40) << std::endl;	//	https://www.dafont.com/crunch-chips.font
-	std::cout << "Font \"crunch chips\" 30px loaded? " << subTitleFont.load("fonts/crunch chips.otf", 30) << std::endl;	//	https://www.dafont.com/crunch-chips.font
-	std::cout << "Font \"coolvetica rg\" 20px loaded? " << normalFont.load("fonts/coolvetica rg.otf", 20) << std::endl;	//	https://www.dafont.com/coolvetica.font
+
+	subTitleFont.load("fonts/Retro Gaming.ttf", 35);	//	https://befonts.com/pokemon-font.html
+	normalFont.load("fonts/Retro Gaming.ttf", 25);	//	https://www.dafont.com/retro-gaming.font
 
 	root = make_shared<ScreenWelcome>();
 
@@ -50,14 +52,17 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
+	if (button == 0) isLeftMousePressed = true;
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+	if (button == 0) isLeftMousePressed = true;
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
+	if (button == 0) isLeftMousePressed = false;
 }
 
 //--------------------------------------------------------------
@@ -66,6 +71,7 @@ void ofApp::mouseEntered(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
+	this->isLeftMousePressed = false;
 }
 
 
@@ -74,10 +80,6 @@ void ofApp::gotMessage(ofMessage msg){
 
 }
 
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
 
 void ofApp::updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode) {
 	if (currentNode.expired()) return;

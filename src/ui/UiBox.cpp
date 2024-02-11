@@ -15,4 +15,6 @@ void UiBox::onRender(float x, float y) {
 ofColor UiBox::getFillColor() {
 	return this->fillColor;
 }
-UiBox::UiBox(float x, float y, float width, float height) : UiElement(x, y, width, height) {}
+UiBox::UiBox(float x, float y, float width, float height, ofColor fillColor) : UiElement(x, y, width, height) {
+	this->fillColor = fillColor;
+}

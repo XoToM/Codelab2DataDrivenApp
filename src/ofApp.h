@@ -7,6 +7,7 @@ class ofApp : public ofBaseApp{
 
 	public:
 		static ofTrueTypeFont titleFont;
+		static ofTrueTypeFont titleHighlightFont;
 		static ofTrueTypeFont subTitleFont;
 		static ofTrueTypeFont normalFont;
 
@@ -29,7 +30,6 @@ class ofApp : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void mouseEntered(int x, int y);
 		void mouseExited(int x, int y);
-		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
 		void updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode);

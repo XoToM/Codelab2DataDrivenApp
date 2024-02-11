@@ -195,7 +195,9 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
     <ClCompile Include="src\screens\ScreenWelcome.cpp" />
+    <ClCompile Include="src\ui\pokequiz\PokeTitle.cpp" />
     <ClCompile Include="src\ui\UiBox.cpp" />
+    <ClCompile Include="src\ui\UiButton.cpp" />
     <ClCompile Include="src\ui\UiElement.cpp" />
     <ClCompile Include="src\ui\UiText.cpp" />
   </ItemGroup>
@@ -218,7 +220,9 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
     <ClInclude Include="src\screens\ScreenWelcome.h" />
+    <ClInclude Include="src\ui\pokequiz\PokeTitle.h" />
     <ClInclude Include="src\ui\UiBox.h" />
+    <ClInclude Include="src\ui\UiButton.h" />
     <ClInclude Include="src\ui\UiElement.h" />
     <ClInclude Include="src\ui\UiText.h" />
   </ItemGroup>
