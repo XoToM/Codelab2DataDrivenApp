@@ -13,7 +13,7 @@ public:
 		this->addChild(make_shared<UiSpace>());
 
 		auto optionList = this->addChild(make_shared<UiBox>(ElementOrientation::Vertical));
-		auto option = optionList->addChild(make_shared<UiButton>([]() {  }));
+		//auto option = optionList->addChild(make_shared<UiButton>([]() {  }));
 		optionList->setMargins(10);
 
 		this->addChild(make_shared<UiSpace>(0,2));
@@ -26,7 +26,7 @@ public:
 		submitButton->minHeight = 110;
 		submitButton->maxHeight = 130;
 		this->addChild(UiBox::createCenteredElement<UiButton>(submitButton, ElementOrientation::Horizontal));
-		submitButton->onButtonClicked = [submitButton]() { cout << submitButton->calculatedWidth << " " << submitButton->calculatedHeight << endl; };
+		submitButton->onButtonClicked = [submitButton]() { cout << submitButton->calculatedBoxWidth << " " << submitButton->calculatedBoxHeight << endl; };
 		this->addChild(make_shared<UiSpace>());
 	}
 };

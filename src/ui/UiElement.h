@@ -16,6 +16,7 @@
 			static long uniqueIdentifierCounter;
 		public:
 			enum class ElementOrientation { Horizontal, Vertical };
+			enum class ElementAlignment { Start, Center, End };
 
 			long uniqueIdentifier;	//	Used to make finding and comparing elements easier.
 
@@ -47,6 +48,8 @@
 			float marginDown = 0;
 
 			ElementOrientation ContentOrientation = ElementOrientation::Horizontal;
+			ElementAlignment MainContentAlignment = ElementAlignment::Start;
+			ElementAlignment SubContentAlignment = ElementAlignment::Start;
 
 			UiElement() {
 				this->uniqueIdentifier = UiElement::uniqueIdentifierCounter++;	//	Allocate a unique id to this element. Pretty much guaranteed to be unique since the computer running this program would probably decompose before this counter overflowed.

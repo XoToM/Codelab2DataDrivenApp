@@ -8,10 +8,10 @@ long UiElement::uniqueIdentifierCounter = 0;
 void UiElement::recalculateSize(float containerWidth, float containerHeight) {
 	switch (this->ContentOrientation) {
 	case ElementOrientation::Horizontal:
-		calculateSizeOnXAxis(containerWidth - this->marginLeft - this->marginRight, containerHeight - this->marginUp - this->marginDown, this->Children);
+		calculateSizeOnXAxis(containerWidth - this->marginLeft - this->marginRight, containerHeight - this->marginUp - this->marginDown, this->Children, this->MainContentAlignment, this->SubContentAlignment);
 		break;
 	case ElementOrientation::Vertical:
-		calculateSizeOnYAxis(containerWidth - this->marginLeft - this->marginRight, containerHeight - this->marginUp - this->marginDown, this->Children);
+		calculateSizeOnYAxis(containerWidth - this->marginLeft - this->marginRight, containerHeight - this->marginUp - this->marginDown, this->Children, this->MainContentAlignment, this->SubContentAlignment);
 		break;
 	}
 }

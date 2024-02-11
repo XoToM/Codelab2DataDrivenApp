@@ -27,4 +27,7 @@ public:
 	bool isActive() {
 		return isHoveredOver() && (UiRoot::isLeftMouseDown || UiRoot::isRightMouseDown);
 	}
+	void recalculateSize(float cw, float ch) {
+		UiElement::recalculateSize(cw, ch);
+	}
 };

@@ -1,7 +1,7 @@
 #include "UiElement.h"
 
 
-void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vector<std::shared_ptr<UiElement>> children) {
+void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vector<std::shared_ptr<UiElement>> children, UiElement::ElementAlignment mainAlignment, UiElement::ElementAlignment subAlignment) {
 	auto minimumWidth = 0;
 	for (auto& c : children) {
 		minimumWidth += c->minWidth;
@@ -47,7 +47,7 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 		float newWidth = c->growFactor * spacePerPoint + c->minWidth;
 
 		float newHeight = std::max(c->minHeight, containerHeight);
-		if (c->maxHeight >= 0) c->calculatedBoxHeight = std::min(c->maxHeight, c->calculatedBoxHeight);
+		if (c->maxHeight >= 0) newHeight = std::min(c->maxHeight, newHeight);
 
 		if (c->calculatedBoxHeight != newHeight || c->calculatedBoxWidth != newWidth) {
 			c->calculatedBoxWidth = newWidth;
@@ -63,12 +63,23 @@ void calculateSizeOnXAxis(float containerWidth, float containerHeight, std::vect
 		c->calculatedHeight = c->calculatedBoxHeight - c->marginUp - c->marginDown;
 
 		c->calculatedXPosition = offset + c->marginLeft;
-		c->calculatedYPosition = c->marginUp;
+		switch (subAlignment) {
+		case UiElement::ElementAlignment::Start:
+			c->calculatedYPosition = c->marginUp;
+			break;
+		case UiElement::ElementAlignment::End:
+			c->calculatedYPosition = containerHeight - c->calculatedHeight - c->marginDown;
+			break;
+		case UiElement::ElementAlignment::Center:
+			float estimatedPosition = containerHeight / 2 - c->calculatedBoxHeight/2;
+			c->calculatedYPosition = estimatedPosition + c->marginUp;
+			break;
+		}
 		offset += c->calculatedBoxWidth;
 	}
 }
 
-void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vector<std::shared_ptr<UiElement>> children) {
+void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vector<std::shared_ptr<UiElement>> children, UiElement::ElementAlignment mainAlignment, UiElement::ElementAlignment subAlignment) {
 	auto minimumHeight = 0;
 	for (auto& c : children) {
 		minimumHeight += c->minHeight;
@@ -95,7 +106,7 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 				c->sizeCalculationDoneEarly = true;
 
 				float newWidth = std::max(c->minWidth, containerWidth);
-				if (c->maxWidth >= 0) c->calculatedBoxWidth = std::min(c->maxWidth, c->calculatedBoxWidth);
+				if (c->maxWidth >= 0) newWidth = std::min(c->maxWidth, newWidth);
 
 				if (c->calculatedBoxHeight != newHeight || c->calculatedBoxWidth != newWidth) {
 					c->calculatedBoxWidth = newWidth;
@@ -126,7 +137,19 @@ void calculateSizeOnYAxis(float containerWidth, float containerHeight, std::vect
 		c->calculatedWidth = c->calculatedBoxWidth - c->marginLeft - c->marginRight;
 		c->calculatedHeight = c->calculatedBoxHeight - c->marginUp - c->marginDown;
 
-		c->calculatedXPosition = c->marginLeft;
+		switch (subAlignment) {
+		case UiElement::ElementAlignment::Start:
+			c->calculatedXPosition = c->marginLeft;
+			break;
+		case UiElement::ElementAlignment::End:
+			c->calculatedXPosition = containerWidth - c->calculatedWidth - c->marginUp;
+			break;
+		case UiElement::ElementAlignment::Center:
+			float estimatedPosition = containerWidth / 2 - c->calculatedBoxWidth / 2;
+			c->calculatedXPosition = estimatedPosition + c->marginLeft;
+			break;
+		}
+
 		c->calculatedYPosition = offset + c->marginUp;
 		offset += c->calculatedBoxHeight;
 	}
