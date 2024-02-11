@@ -197,6 +197,7 @@
     <ClCompile Include="src\screens\ScreenWelcome.cpp" />
     <ClCompile Include="src\ui\UiBox.cpp" />
     <ClCompile Include="src\ui\UiElement.cpp" />
+    <ClCompile Include="src\ui\UiText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
@@ -219,6 +220,7 @@
     <ClInclude Include="src\screens\ScreenWelcome.h" />
     <ClInclude Include="src\ui\UiBox.h" />
     <ClInclude Include="src\ui\UiElement.h" />
+    <ClInclude Include="src\ui\UiText.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

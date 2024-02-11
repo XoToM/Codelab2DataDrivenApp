@@ -10,7 +10,7 @@ class ofApp : public ofBaseApp{
 		static ofTrueTypeFont subTitleFont;
 		static ofTrueTypeFont normalFont;
 
-		static shared_ptr<UiElement> currentScreen;
+		static shared_ptr<UiElement> root;
 
 		void setup();
 		void update();

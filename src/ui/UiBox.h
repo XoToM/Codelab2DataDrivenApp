@@ -1,6 +1,7 @@
 #pragma once
 #include "UiElement.h"
-#include <ofColor.h>
+#include "ofMain.h"
+
 class UiBox : public UiElement
 {
 public:

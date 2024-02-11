@@ -1,5 +1,5 @@
 #include "UiBox.h"
-#include <ofGraphics.h>
+#include "ofMain.h"
 
 void UiBox::onRender(float x, float y) {
 	ofSetColor(this->getFillColor());

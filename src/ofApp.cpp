@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include "ofApp.h"
 #include "ofMain.h"
+#include <screens/ScreenWelcome.h>
 
 
 ofTrueTypeFont ofApp::titleFont;
 ofTrueTypeFont ofApp::subTitleFont;
 ofTrueTypeFont ofApp::normalFont;
-shared_ptr<UiElement> currentScreen;
+shared_ptr<UiElement> ofApp::root;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -17,14 +18,18 @@ void ofApp::setup(){
 	std::cout << "Font \"crunch chips\" 30px loaded? " << subTitleFont.load("fonts/crunch chips.otf", 30) << std::endl;	//	https://www.dafont.com/crunch-chips.font
 	std::cout << "Font \"coolvetica rg\" 20px loaded? " << normalFont.load("fonts/coolvetica rg.otf", 20) << std::endl;	//	https://www.dafont.com/coolvetica.font
 
+	root = make_shared<ScreenWelcome>();
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	root->onUpdate();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	root->onRender(0, 0);
 }
 
 //--------------------------------------------------------------
