@@ -47,26 +47,33 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+	ofApp::updateMouseHoveredElement(x, y, ofApp::root);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
 	if (button == 0) isLeftMousePressed = true;
+	ofApp::updateMouseHoveredElement(x, y, ofApp::root);
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
 	if (button == 0) isLeftMousePressed = true;
+	ofApp::updateMouseHoveredElement(x, y, ofApp::root);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-	if (button == 0) isLeftMousePressed = false;
+	ofApp::updateMouseHoveredElement(x, y, ofApp::root);
+	if (button == 0) {
+		isLeftMousePressed = false;
+		ofApp::root->onClick((float)x, (float)y);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
+	ofApp::updateMouseHoveredElement(x, y, ofApp::root);
 }
 
 //--------------------------------------------------------------

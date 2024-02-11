@@ -14,5 +14,6 @@ public:
 	ScreenWelcome();
 
 	void onUpdate();
+	bool onClick(float x, float y);
 };
 

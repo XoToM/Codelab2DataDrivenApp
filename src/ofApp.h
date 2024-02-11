@@ -33,4 +33,10 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		void updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode);
+
+		template <class T> static void changeScreens(std::shared_ptr<T> newScreen) {
+			std::shared_ptr<UiElement> newScreenPointer = std::static_pointer_cast<UiElement, T>(newScreen);
+			ofApp::root = newScreenPointer;
+			ofApp::mainApp->updateMouseHoveredElement(ofGetMouseX(), ofGetMouseY(), newScreenPointer);
+		}
 };

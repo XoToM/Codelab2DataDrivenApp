@@ -38,6 +38,14 @@ public:
 	virtual void onUpdate();
 
 	/// <summary>
+	/// Called when this element has been clicked. 
+	/// </summary>
+	/// <param name="x">X coordinate of the clicked position relative to this element</param>
+	/// <param name="y">Y coordinate of the clicked position relative to this element</param>
+	/// <returns>True if this element has handled the event, false otherwise. If false is returned this event might be propagated throughout other elements.</returns>
+	virtual bool onClick(float x, float y);
+
+	/// <summary>
 	/// Takes coorditanes of a point relative to the top left corner of this element, and determines if the given point is inside this element or not
 	/// </summary>
 	/// <param name="relX">X coordinate of the point</param>

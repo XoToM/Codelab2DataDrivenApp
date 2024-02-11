@@ -3,9 +3,14 @@
 
 //========================================================================
 int main( ){
-	ofSetupOpenGL(1024,768,OF_WINDOW);			// <-------- setup the GL context
+	//ofSetupOpenGL(,OF_WINDOW);			// <-------- setup the GL context
 
 	// this kicks off the running of my app
-	ofRunApp(new ofApp());
+	//ofRunApp(new ofApp());
 
+	ofGLFWWindowSettings settings;
+	settings.resizable = false;
+	settings.setSize(1024, 768);
+	ofCreateWindow(settings);
+	return ofRunApp(new ofApp);
 }

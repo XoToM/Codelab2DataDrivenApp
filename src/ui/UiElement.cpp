@@ -31,13 +31,17 @@ UiElement::UiElement(float x, float y, float width, float height) {
 /// </summary>
 /// <returns></returns>
 bool UiElement::isHoveredOver() {
-	if (ofApp::hoveredElement.expired()) ofApp::mainApp->updateMouseHoveredElement(ofGetMouseX(), ofGetMouseY(), ofApp::root);	//	If the pointer has expired then that means the screen has changed, or the hovered over element somehow went out of scope. Either way we need to update the currently hovered over element.
+	if (ofApp::hoveredElement.expired()) return false;	//	If the pointer has expired then that means the screen has changed, or the hovered over element somehow went out of scope. Either way we need to update the currently hovered over element, so we can return false for now.
 
 	auto fullPointer = ofApp::hoveredElement.lock();	//	Gets a shared pointer to the element which is being hovered over
 
 	if (fullPointer->uniqueId == this->uniqueId) return true;
-	for (auto child : fullPointer->Children) {
+	for (auto child : this->Children) {
 		if (child->isHoveredOver()) return true;	//	Calls itself on this element's children. If one of the children is being hovered over, then this element is as well.
 	}
+	return false;
+}
+
+bool UiElement::onClick(float x, float y) {
 	return false;
 }

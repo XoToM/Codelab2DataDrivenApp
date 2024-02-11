@@ -9,6 +9,10 @@ UiText::UiText(std::string text, ofTrueTypeFont* font, float x, float y, float w
 
 void UiText::updateWordWrapping() {
 	wordWrappedTextLines.clear();
+	if (!this->doWordWrapping) {
+		wordWrappedTextLines.push_back(this->text);
+		return;
+	}
 	std::vector<std::string> lines;
 	boost::split(lines, this->text, boost::is_any_of("\n"));	//	Split the string by new lines. This way if we explicitly put in a new line inside the text the new line will be preserved.
 

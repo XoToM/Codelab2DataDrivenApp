@@ -1,7 +1,9 @@
 #include "ScreenWelcome.h"
-#include "../ui/UiText.h"
+#include "ui/UiText.h"
 #include "ofApp.h"
 #include "ui/pokequiz/PokeTitle.h"
+
+#include "ScreenDifficultySelect.h"
 
 ScreenWelcome::ScreenWelcome() : UiBox(0, 0, ofGetWidth(), ofGetHeight()) {
 	//	Load fonts for the title screen. These are loaded in here instead of in ofApp because font this big is only used here
@@ -9,8 +11,10 @@ ScreenWelcome::ScreenWelcome() : UiBox(0, 0, ofGetWidth(), ofGetHeight()) {
 	this->titleOutlineFont.load("fonts/Pokemon Hollow.ttf", 110);	//	https://befonts.com/pokemon-font.html
 
 	this->titleElement = this->addChild(make_shared<PokeTitle>("Poke Quiz", &this->titleFont, &this->titleOutlineFont));	//	Define ui elements
-	this->addChild(make_shared<UiText>("By Dawid Kawka", &ofApp::normalFont, 20, ofGetHeight() - 50));
-	this->addChild(make_shared<UiText>("Click anywhere to start", &ofApp::subTitleFont, 0, ofGetHeight()/2 + 50, ofGetWidth()))->textAlignment = UiText::TextAlignment::Center;
+	this->addChild(make_shared<UiText>("By Dawid Kawka", &ofApp::normalFont, 20, ofGetHeight() - 50))->textColor = ofColor(255,255,255);
+	auto centerText = this->addChild(make_shared<UiText>("Click anywhere to start", &ofApp::subTitleFont, 0, ofGetHeight() / 2 + 50, ofGetWidth()));
+	centerText->textAlignment = UiText::TextAlignment::Center;
+	centerText->textColor = ofColor(255, 255, 255);
 }
 
 void ScreenWelcome::onUpdate() {
@@ -19,4 +23,8 @@ void ScreenWelcome::onUpdate() {
 	this->titleElement->yPosition = 40 + 10 * sinf(timeLoopOffset);	//	Make the title move a bit
 	
 	UiBox::onUpdate();	//	Update the child elements
+}
+bool ScreenWelcome::onClick(float x, float y) {
+	ofApp::changeScreens(make_shared<ScreenDifficultySelect>());
+	return true;
 }

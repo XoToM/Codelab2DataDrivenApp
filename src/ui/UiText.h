@@ -13,8 +13,9 @@ private:
 public:
 	enum class TextAlignment { Left, Center, Right };
 
-	ofColor textColor = ofColor(255, 255, 255);	//	Colour of the text
+	ofColor textColor = ofColor(0, 0, 0);	//	Colour of the text
 	ofTrueTypeFont* pFont;	//	Font to use when drawing and calculating positions
+	bool doWordWrapping = true;
 
 	TextAlignment textAlignment = TextAlignment::Left;	//	How to align the text inside this text element
 
