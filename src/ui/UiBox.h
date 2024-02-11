@@ -15,6 +15,15 @@
 				this->ContentOrientation = orientation;
 			}
 
+			template <class T>
+			static shared_ptr<UiBox> createCenteredElement(shared_ptr<T> child, UiElement::ElementOrientation orientation = UiElement::ElementOrientation::Horizontal) {
+				shared_ptr<UiBox> box = make_shared<UiBox>(orientation);
+				box->addChild(make_shared<UiSpace>());
+				box->addChild(child);
+				box->addChild(make_shared<UiSpace>());
+				return box;
+			}
+
 			bool onRender(float parentX, float parentY) {
 				float x = parentX + this->calculatedXPosition;
 				float y = parentY + this->calculatedYPosition;
