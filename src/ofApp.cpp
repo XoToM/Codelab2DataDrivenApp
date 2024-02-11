@@ -7,11 +7,11 @@
 ofTrueTypeFont ofApp::titleFont;
 ofTrueTypeFont ofApp::subTitleFont;
 ofTrueTypeFont ofApp::normalFont;
+shared_ptr<UiElement> currentScreen;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 	//	Load Fonts
-
 
 	std::cout << "Font \"crunch chips\" 40px loaded? " << titleFont.load("fonts/crunch chips.otf", 40) << std::endl;	//	https://www.dafont.com/crunch-chips.font
 	std::cout << "Font \"crunch chips\" 30px loaded? " << subTitleFont.load("fonts/crunch chips.otf", 30) << std::endl;	//	https://www.dafont.com/crunch-chips.font

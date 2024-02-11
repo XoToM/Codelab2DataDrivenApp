@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ui/UiElement.h"
 
 class ofApp : public ofBaseApp{
 
@@ -9,8 +10,7 @@ class ofApp : public ofBaseApp{
 		static ofTrueTypeFont subTitleFont;
 		static ofTrueTypeFont normalFont;
 
-		int lastKnownWidth = 0;
-		int lastKnownHeight = 0;
+		static shared_ptr<UiElement> currentScreen;
 
 		void setup();
 		void update();

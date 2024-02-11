@@ -194,6 +194,9 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
+    <ClCompile Include="src\screens\ScreenWelcome.cpp" />
+    <ClCompile Include="src\ui\UiBox.cpp" />
+    <ClCompile Include="src\ui\UiElement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
@@ -213,6 +216,9 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
+    <ClInclude Include="src\screens\ScreenWelcome.h" />
+    <ClInclude Include="src\ui\UiBox.h" />
+    <ClInclude Include="src\ui\UiElement.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

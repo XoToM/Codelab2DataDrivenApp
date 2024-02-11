@@ -49,6 +49,15 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ui\UiElement.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\UiBox.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screens\ScreenWelcome.cpp">
+      <Filter>src\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -83,6 +92,12 @@
     </Filter>
     <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
       <UniqueIdentifier>{6D569A5B-6719-AEFD-C08E-5CE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui">
+      <UniqueIdentifier>{3e607b97-137d-4ce1-9ff8-4e74c7d03c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\screens">
+      <UniqueIdentifier>{1863153c-b0d2-4025-a5c6-d12307dc8216}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +154,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h">
       <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\UiElement.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\UiBox.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screens\ScreenWelcome.h">
+      <Filter>src\screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 #include "UiElement.h"
 
+long UiElement::uniqueIdCounter = 0;
 
 bool UiElement::isInBounds(float relX, float relY) {	//	Take coorditanes of a point relative to the top left corner of this element, and determine if the given point is inside this element or not
 	return relX >= 0 && relY >= 0 && relX < this->width && relY < this->height;
