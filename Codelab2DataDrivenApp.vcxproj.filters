@@ -13,18 +13,6 @@
     <ClCompile Include="src\ofApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ui\UiBox.cpp">
-      <Filter>src\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ui\UiElement.cpp">
-      <Filter>src\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ui\UiRoot.cpp">
-      <Filter>src\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ui\uiSpaceAllocator.cpp">
-      <Filter>src\ui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
@@ -61,28 +49,10 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\screens\ScreenError.cpp">
-      <Filter>src\screens</Filter>
-    </ClCompile>
-    <ClCompile Include="src\quiz\QuizManager.cpp">
-      <Filter>src\quiz</Filter>
-    </ClCompile>
-    <ClCompile Include="src\screens\ScreenDifficultySelect.cpp">
-      <Filter>src\screens</Filter>
-    </ClCompile>
-    <ClCompile Include="src\screens\ScreenQuizMultiChoice.cpp">
-      <Filter>src\screens</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
       <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\screens">
-      <UniqueIdentifier>{17CDE030-E843-F2E3-A60A-B97C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui">
-      <UniqueIdentifier>{34F0B3B1-2BDA-A36D-9F63-1753}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons">
       <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
@@ -114,9 +84,6 @@
     <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
       <UniqueIdentifier>{6D569A5B-6719-AEFD-C08E-5CE5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\quiz">
-      <UniqueIdentifier>{a38d8909-6036-414d-9a76-976a8256284d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
@@ -124,27 +91,6 @@
     </ClInclude>
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\UiBox.h">
-      <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\UiButton.h">
-      <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\UiElement.h">
-      <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\UiRoot.h">
-      <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\UiSpace.h">
-      <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\uiSpaceAllocator.h">
-      <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\UiText.h">
-      <Filter>src\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
       <Filter>addons\ofxGui\src</Filter>
@@ -193,18 +139,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h">
       <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
-    </ClInclude>
-    <ClInclude Include="src\screens\ScreenError.h">
-      <Filter>src\screens</Filter>
-    </ClInclude>
-    <ClInclude Include="src\quiz\QuizManager.h">
-      <Filter>src\quiz</Filter>
-    </ClInclude>
-    <ClInclude Include="src\screens\ScreenDifficultySelect.h">
-      <Filter>src\screens</Filter>
-    </ClInclude>
-    <ClInclude Include="src\screens\ScreenQuizMultiChoice.h">
-      <Filter>src\screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -194,14 +194,6 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
-    <ClCompile Include="src\quiz\QuizManager.cpp" />
-    <ClCompile Include="src\screens\ScreenDifficultySelect.cpp" />
-    <ClCompile Include="src\screens\ScreenError.cpp" />
-    <ClCompile Include="src\screens\ScreenQuizMultiChoice.cpp" />
-    <ClCompile Include="src\ui\UiBox.cpp" />
-    <ClCompile Include="src\ui\UiElement.cpp" />
-    <ClCompile Include="src\ui\UiRoot.cpp" />
-    <ClCompile Include="src\ui\uiSpaceAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
@@ -221,17 +213,6 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
-    <ClInclude Include="src\quiz\QuizManager.h" />
-    <ClInclude Include="src\screens\ScreenDifficultySelect.h" />
-    <ClInclude Include="src\screens\ScreenError.h" />
-    <ClInclude Include="src\screens\ScreenQuizMultiChoice.h" />
-    <ClInclude Include="src\ui\UiBox.h" />
-    <ClInclude Include="src\ui\UiButton.h" />
-    <ClInclude Include="src\ui\UiElement.h" />
-    <ClInclude Include="src\ui\UiRoot.h" />
-    <ClInclude Include="src\ui\UiSpace.h" />
-    <ClInclude Include="src\ui\uiSpaceAllocator.h" />
-    <ClInclude Include="src\ui\UiText.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

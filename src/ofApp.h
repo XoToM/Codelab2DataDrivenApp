@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ui/UiRoot.h"
 
 class ofApp : public ofBaseApp{
 
@@ -9,7 +8,6 @@ class ofApp : public ofBaseApp{
 		static ofTrueTypeFont titleFont;
 		static ofTrueTypeFont subTitleFont;
 		static ofTrueTypeFont normalFont;
-		static std::shared_ptr<UiRoot> root;
 
 		int lastKnownWidth = 0;
 		int lastKnownHeight = 0;
@@ -26,7 +24,6 @@ class ofApp : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void mouseEntered(int x, int y);
 		void mouseExited(int x, int y);
-		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 };
