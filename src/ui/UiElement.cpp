@@ -1,4 +1,5 @@
 #include "UiElement.h"
+#include <ofApp.h>
 
 long UiElement::uniqueIdCounter = 0;
 
@@ -23,4 +24,20 @@ UiElement::UiElement(float x, float y, float width, float height) {
 	this->yPosition = y;
 
 	this->uniqueId = uniqueIdCounter++;	//	Generates a unique id for this element. I have done the maths, and even if this program created 1000 elements per second (1 every millisecond), the computer running this program will decompose before this counter overflows (time for e-waste to decompose is somewhere between 50 years and 1 million years, and this will take aproximately 584 million years to overflow). This means that we can safely assume this id is going to be unique.
+}
+
+/// <summary>
+/// Checks if this element or one of its children is being hovered over.
+/// </summary>
+/// <returns></returns>
+bool UiElement::isHoveredOver() {
+	if (ofApp::hoveredElement.expired()) ofApp::mainApp->updateMouseHoveredElement(ofGetMouseX(), ofGetMouseY(), ofApp::root);	//	If the pointer has expired then that means the screen has changed, or the hovered over element somehow went out of scope. Either way we need to update the currently hovered over element.
+
+	auto fullPointer = ofApp::hoveredElement.lock();	//	Gets a shared pointer to the element which is being hovered over
+
+	if (fullPointer->uniqueId == this->uniqueId) return true;
+	for (auto child : fullPointer->Children) {
+		if (child->isHoveredOver()) return true;	//	Calls itself on this element's children. If one of the children is being hovered over, then this element is as well.
+	}
+	return false;
 }

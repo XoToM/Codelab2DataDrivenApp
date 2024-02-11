@@ -11,6 +11,11 @@ class ofApp : public ofBaseApp{
 		static ofTrueTypeFont normalFont;
 
 		static shared_ptr<UiElement> root;
+		static ofApp* mainApp;
+
+		static weak_ptr<UiElement> hoveredElement;
+
+		bool isLeftMousePressed = false;
 
 		void setup();
 		void update();
@@ -26,4 +31,6 @@ class ofApp : public ofBaseApp{
 		void mouseExited(int x, int y);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		void updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode);
 };

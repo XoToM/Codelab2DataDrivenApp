@@ -8,7 +8,7 @@ private:
 	static long uniqueIdCounter;
 public:
 	std::vector<std::shared_ptr<UiElement>> Children;	//	Stores child elements of this element
-
+	
 	float xPosition;
 	float yPosition;
 	float width;
@@ -57,5 +57,7 @@ public:
 		this->Children.push_back(child);
 		return new_child;
 	}
+
+	bool isHoveredOver();
 };
 

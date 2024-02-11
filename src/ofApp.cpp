@@ -9,9 +9,11 @@ ofTrueTypeFont ofApp::titleFont;
 ofTrueTypeFont ofApp::subTitleFont;
 ofTrueTypeFont ofApp::normalFont;
 shared_ptr<UiElement> ofApp::root;
+ofApp* ofApp::mainApp;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	mainApp = this;
 	//	Load Fonts
 
 	std::cout << "Font \"crunch chips\" 40px loaded? " << titleFont.load("fonts/crunch chips.otf", 40) << std::endl;	//	https://www.dafont.com/crunch-chips.font
@@ -43,6 +45,7 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
+
 }
 
 //--------------------------------------------------------------
@@ -74,4 +77,14 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+void ofApp::updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode) {
+	if (currentNode.expired()) return;
+
+	hoveredElement = currentNode;
+	auto fullPointer = hoveredElement.lock();
+	for (auto child : fullPointer->Children) {
+		if (child->isInBounds(mouseX-child->xPosition, mouseY - child->yPosition)) updateMouseHoveredElement(mouseX - child->xPosition, mouseY - child->yPosition, child);
+	}
 }
