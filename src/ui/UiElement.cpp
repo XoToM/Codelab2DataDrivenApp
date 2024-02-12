@@ -43,5 +43,10 @@ bool UiElement::isHoveredOver() {
 }
 
 bool UiElement::onClick(float x, float y) {
+	for (auto child : this->Children) {	//Go through all the child elements in order to determine which one handled the click
+		float relX = x - child->xPosition;
+		float relY = y - child->yPosition;
+		if (child->isInBounds(relX, relY) && child->onClick(relX, relY)) return true;
+	}
 	return false;
 }

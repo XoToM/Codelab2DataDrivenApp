@@ -65,7 +65,7 @@
       <Filter>src\ui</Filter>
     </ClCompile>
     <ClCompile Include="src\ui\pokequiz\PokeTitle.cpp">
-      <Filter>src\ui\pokequiz</Filter>
+      <Filter>src\ui\specialized</Filter>
     </ClCompile>
     <ClCompile Include="src\screens\ScreenDifficultySelect.cpp">
       <Filter>src\screens</Filter>
@@ -111,7 +111,7 @@
     <Filter Include="src\screens">
       <UniqueIdentifier>{1863153c-b0d2-4025-a5c6-d12307dc8216}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\ui\pokequiz">
+    <Filter Include="src\ui\specialized">
       <UniqueIdentifier>{c7f628f7-ed9f-4453-894f-626ee169db2b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -186,7 +186,7 @@
       <Filter>src\ui</Filter>
     </ClInclude>
     <ClInclude Include="src\ui\pokequiz\PokeTitle.h">
-      <Filter>src\ui\pokequiz</Filter>
+      <Filter>src\ui\specialized</Filter>
     </ClInclude>
     <ClInclude Include="src\screens\ScreenDifficultySelect.h">
       <Filter>src\screens</Filter>
