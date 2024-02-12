@@ -51,15 +51,6 @@ void ofApp::draw(){
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-	ofApp::showError();
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-}
-
-//--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
 	ofApp::updateMouseHoveredElement(x, y, ofApp::root);
 }
@@ -95,11 +86,6 @@ void ofApp::mouseExited(int x, int y){
 	this->isLeftMousePressed = false;
 }
 
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
 
 
 void ofApp::updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode) {
