@@ -1,7 +1,7 @@
 #include "PokeTitle.h"
 #include "ofApp.h"
 
-PokeTitle::PokeTitle(std::string text, ofTrueTypeFont* fillFont, ofTrueTypeFont* outlineFont) : UiText(text, fillFont, 0, 40, ofGetWidth()) {
+PokeTitle::PokeTitle(std::string text, ofTrueTypeFont* fillFont, ofTrueTypeFont* outlineFont) : UiText(text, fillFont, 0, 30, ofGetWidth()) {
 	this->textAlignment = UiText::TextAlignment::Center;	//	Sets up some default variables
 	this->primaryColor = ofColor(255,255,0);
 	this->pPrimaryFont = fillFont;

@@ -47,6 +47,7 @@ ScreenGenerationSelect::ScreenGenerationSelect(QuizGenerator::QuizDifficulty dif
 
 			QuizGenerator::mainGenerator = std::make_unique<QuizGenerator>(pokemons, difficulty);
 
+			QuizGenerator::mainGenerator->generateNextQuestion();
 			ofApp::changeScreens(QuizGenerator::mainGenerator->generateNextQuestion());
 
 			}, &ofApp::smallFont, 270));

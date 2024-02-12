@@ -17,6 +17,7 @@ public:
 	QuizDifficulty difficulty;
 	int questionCount = 1;
 	int lives = 3;
+	int score = 0;
 	std::map<std::string, PokemonResource> pokemons;
 
 	QuizGenerator(std::map<std::string, PokemonResource> pokemons, QuizDifficulty difficulty);
