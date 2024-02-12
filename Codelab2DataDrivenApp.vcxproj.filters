@@ -224,9 +224,6 @@
     <ClInclude Include="src\screens\ScreenError.h">
       <Filter>src\screens</Filter>
     </ClInclude>
-    <ClInclude Include="ApiErrors.h">
-      <Filter>src\pokeapi</Filter>
-    </ClInclude>
     <ClInclude Include="src\pokeapi\PokemonResource.h">
       <Filter>src\pokeapi</Filter>
     </ClInclude>
@@ -247,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="src\screens\ScreenGameOver.h">
       <Filter>src\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pokeapi\ApiErrors.h">
+      <Filter>src\pokeapi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

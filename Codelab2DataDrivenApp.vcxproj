@@ -211,7 +211,6 @@
     <ClCompile Include="src\ui\UiText.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ApiErrors.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
@@ -229,6 +228,7 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
+    <ClInclude Include="src\pokeapi\ApiErrors.h" />
     <ClInclude Include="src\pokeapi\ApiHelper.h" />
     <ClInclude Include="src\pokeapi\PokemonResource.h" />
     <ClInclude Include="src\QuizGenerator.h" />
