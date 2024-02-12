@@ -11,13 +11,12 @@
 ScreenPokeQuestion::ScreenPokeQuestion(int questionNumber, std::string questionText, std::vector<std::string> answers, int correctIndex, std::string pokeImageName) : UiElement(0, 0, ofGetWidth(), ofGetHeight()) {
 	this->addChild(make_shared<PokeTitle>("Question " + std::to_string(questionNumber), &ofApp::titleFont, &ofApp::titleHighlightFont));	//	Insert this screen's title
 	
-	auto questionFrame = this->addChild(UiBox::make_frame(0, POKEQUIZ_UI_MAIN_FRAME_TOP_OFFSET-110,800,300));
+	auto questionFrame = this->addChild(UiBox::make_frame(0, POKEQUIZ_UI_MAIN_FRAME_TOP_OFFSET-80,800,300));
 	questionFrame->centerHorizontallyOnScreen();
 	auto qaLabel = questionFrame->addChild(make_shared<UiText>("Who's that Pokemon?", 310, 150-ofApp::normalFont.getLineHeight(), 480));
 	qaLabel->textAlignment = UiText::TextAlignment::Center;
 
 	std::string correctAnsewr = answers[correctIndex];
-
 
 	auto pokeImage = questionFrame->addChild(make_shared<UiImage>(pokeImageName, 10, 10, 280, 280));
 

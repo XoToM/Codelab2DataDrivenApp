@@ -32,6 +32,20 @@ std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {
 		PokemonResource* pokemonInfo = &mapIterator->second;
 
 		pokemonInfo->fetch();
+
+		bool uniqueCheckFailed = false;	//	Check if this pokemon already exists in the answers list
+		for (auto prevAns : answers) {
+			if (prevAns == pokemonInfo->pokemonName) {
+				uniqueCheckFailed = true;
+				break;
+			}
+		}
+		if (uniqueCheckFailed) {
+			i--;	//	Decrement i. It will be incremented again on the next iteration of the loop, meaning that this effectively forces this iteration of the loop to restart.
+			std::cout << "Reroll" << std::endl;
+			continue;
+		}
+
 		answers.push_back(pokemonInfo->pokemonName);
 		if (i == correct) correctImageUrl = pokemonInfo->imageUrl;
 	}
