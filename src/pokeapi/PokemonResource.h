@@ -9,6 +9,7 @@ public:
 	std::string speciesUrl;
 	std::string speciesName;
 	std::string pokemonName;
+	std::string imageUrl;
 
 	PokemonResource();
 	PokemonResource(std::string speciesName, std::string speciesUrl);

@@ -35,13 +35,20 @@ void PokemonResource::fetch() {
 
 	if (!pokemonInfo.openRemote(pokemonInfoLink)) throw POKEAPI_NETWORK_EXCEPTION;	//	Fetch info about this pokemon
 
-	std::string imageUrl;
+	if (pokemonInfo["sprites"]["other"]["front_default"].isString()) {		//	Try fetching the official artwork image for this pokemon
+		this->imageUrl = pokemonInfo["sprites"]["other"]["front_default"].asString();
+	}
+	else if(pokemonInfo["sprites"]["front_default"].isString()){		//	If we cannot fetch the official artwork for this pokemon we should fall back to the default sprite for it
+		this->imageUrl = pokemonInfo["sprites"]["front_default"].asString();
+	}
+	else {
+		throw POKEAPI_JSON_EXCEPTION;	//	Most likely the json data we got is in an invalid format
+	}
 
 
-	if (!ofApp::mainApp->imageCache.count(imageUrl)) {	//	If there isn't an image for this pokemon in the cache we should fetch a new one
-		ofApp::mainApp->imageCache[imageUrl] = ofImage();
-		ofLoadURLAsync(imageUrl, imageUrl);	//	Send the request to the api to fetch the pokemon image. Also pass in the url as the request's id so we can recognise it once the image has loaded.
-	
+	if (!ofApp::mainApp->imageCache.count(this->imageUrl)) {	//	If there isn't an image for this pokemon in the cache we should fetch a new one
+		ofApp::mainApp->imageCache[this->imageUrl] = ofImage();
+		ofLoadURLAsync(this->imageUrl, this->imageUrl);	//	Send the request to the api to fetch the pokemon image. Also pass in the url as the request's id so we can recognise it once the image has loaded.
 	}
 
 
