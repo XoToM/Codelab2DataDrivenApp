@@ -199,6 +199,7 @@
     <ClCompile Include="src\QuizGenerator.cpp" />
     <ClCompile Include="src\screens\ScreenDifficultySelect.cpp" />
     <ClCompile Include="src\screens\ScreenError.cpp" />
+    <ClCompile Include="src\screens\ScreenGameOver.cpp" />
     <ClCompile Include="src\screens\ScreenGenerationSelect.cpp" />
     <ClCompile Include="src\screens\ScreenPokeQuestion.cpp" />
     <ClCompile Include="src\screens\ScreenWelcome.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="src\QuizGenerator.h" />
     <ClInclude Include="src\screens\ScreenDifficultySelect.h" />
     <ClInclude Include="src\screens\ScreenError.h" />
+    <ClInclude Include="src\screens\ScreenGameOver.h" />
     <ClInclude Include="src\screens\ScreenGenerationSelect.h" />
     <ClInclude Include="src\screens\ScreenPokeQuestion.h" />
     <ClInclude Include="src\screens\ScreenWelcome.h" />

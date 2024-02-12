@@ -91,6 +91,9 @@
     <ClCompile Include="src\ui\UiImage.cpp">
       <Filter>src\ui</Filter>
     </ClCompile>
+    <ClCompile Include="src\screens\ScreenGameOver.cpp">
+      <Filter>src\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -241,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="src\ui\UiImage.h">
       <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screens\ScreenGameOver.h">
+      <Filter>src\screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

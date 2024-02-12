@@ -7,6 +7,9 @@
 #include "ofApp.h"
 #include <QuizGenerator.h>
 #include <ui/UiButton.h>
+#include "ScreenGameOver.h"
+
+ofImage ScreenPokeQuestion::heartIconImage;
 
 ScreenPokeQuestion::ScreenPokeQuestion(int questionNumber, std::string questionText, std::vector<std::string> answers, int correctIndex, std::string pokeImageName) : UiElement(0, 0, ofGetWidth(), ofGetHeight()) {
 	this->addChild(make_shared<PokeTitle>("Question " + std::to_string(questionNumber), &ofApp::titleFont, &ofApp::titleHighlightFont));	//	Insert this screen's title
@@ -36,9 +39,21 @@ ScreenPokeQuestion::ScreenPokeQuestion(int questionNumber, std::string questionT
 			pokeImage->blindImage = false;
 			if (i == correctIndex) {
 				qaLabel->text = "Thats Right! This is a " + correctAnsewr;
+				QuizGenerator::mainGenerator->score++;
+				if (QuizGenerator::mainGenerator->streak++ >= 2) {
+					QuizGenerator::mainGenerator->streak -= 3;
+
+					QuizGenerator::mainGenerator->lives = std::min(QuizGenerator::mainGenerator->lives+1, QuizGenerator::mainGenerator->maxLives);
+				}
 			}
 			else {
 				qaLabel->text = "Wrong! This is a " + correctAnsewr;
+				QuizGenerator::mainGenerator->lives--;
+				QuizGenerator::mainGenerator->streak = 0;
+				if (QuizGenerator::mainGenerator->lives <= 0) {
+					ofApp::changeScreens(std::make_shared<ScreenGameOver>());
+					return;
+				}
 			}
 			qaLabel->updateWordWrapping();
 
@@ -49,5 +64,16 @@ ScreenPokeQuestion::ScreenPokeQuestion(int questionNumber, std::string questionT
 
 
 			}, &ofApp::smallFont, 250));
+	}
+}
+void ScreenPokeQuestion::onRender(float x, float y) {
+	UiElement::onRender(x, y);	//	Render the ui first
+
+	if (!ScreenPokeQuestion::heartIconImage.isAllocated()) {	//	Render the extra stuff like hearts
+		ScreenPokeQuestion::heartIconImage.loadImage("images/heart.png");	//	Heart graphics made by me
+	}
+	ofSetColor(255, 255, 255);
+	for (int i = 0; i < QuizGenerator::mainGenerator->lives; i++) {
+		heartIconImage.draw((float)(10 + x + i * 72), (float)(10 + y), 64, 64);
 	}
 }

@@ -12,9 +12,10 @@ QuizGenerator::QuizGenerator() {
 QuizGenerator::QuizGenerator(std::map<std::string, PokemonResource> pokemons, QuizDifficulty difficulty) {
 	this->difficulty = difficulty;
 	this->pokemons = pokemons;
-	this->lives = 3;
+	this->maxLives = 3;
 	this->score = 0;
-	if (difficulty == QuizDifficulty::Hard) this->lives = 1;
+	if (difficulty == QuizDifficulty::Hard) this->maxLives = 1;
+	this->lives = this->maxLives;
 
 }
 std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {
