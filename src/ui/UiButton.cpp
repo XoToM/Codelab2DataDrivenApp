@@ -6,7 +6,9 @@ UiButton::UiButton(float x, float y, float width, float height, std::function<vo
 	this->onClickHandler = onClickHandler;
 }
 std::shared_ptr<UiButton> UiButton::makeButtonWithLabel(std::string text, float x, float y, std::function<void()> onClickHandler, float width) {
-	auto font = &ofApp::normalFont;
+	return makeButtonWithLabel(text, x, y, onClickHandler, &ofApp::normalFont, width);
+}
+std::shared_ptr<UiButton> UiButton::makeButtonWithLabel(std::string text, float x, float y, std::function<void()> onClickHandler, ofTrueTypeFont* font, float width) {
 	auto textBbox = font->getStringBoundingBox(text,0,0);
 
 	if (width < 0) width = textBbox.getWidth() + 20;
@@ -28,7 +30,7 @@ ofColor UiButton::getFillColor() {
 			return this->clickColor;
 		}
 		else {
-			return ofColor(255, 0, 0);	//	Debugging buttons
+			//return ofColor(255, 0, 0);	//	Debugging buttons
 			return this->hoverColor;
 		}
 	}

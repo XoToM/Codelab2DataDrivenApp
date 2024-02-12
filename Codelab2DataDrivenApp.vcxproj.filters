@@ -82,6 +82,9 @@
     <ClCompile Include="src\pokeapi\ApiHelper.cpp">
       <Filter>src\pokeapi</Filter>
     </ClCompile>
+    <ClCompile Include="src\screens\ScreenGenerationSelect.cpp">
+      <Filter>src\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="src\ui\pokequiz\UiConstants.h">
       <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screens\ScreenGenerationSelect.h">
+      <Filter>src\screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

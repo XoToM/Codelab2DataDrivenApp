@@ -10,6 +10,7 @@ class ofApp : public ofBaseApp{
 		static ofTrueTypeFont titleHighlightFont;
 		static ofTrueTypeFont subTitleFont;
 		static ofTrueTypeFont normalFont;
+		static ofTrueTypeFont smallFont;
 
 		static shared_ptr<UiElement> root;
 		static ofApp* mainApp;

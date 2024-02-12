@@ -10,6 +10,7 @@ ofTrueTypeFont ofApp::titleFont;
 ofTrueTypeFont ofApp::titleHighlightFont;
 ofTrueTypeFont ofApp::subTitleFont;
 ofTrueTypeFont ofApp::normalFont;
+ofTrueTypeFont ofApp::smallFont;
 shared_ptr<UiElement> ofApp::root;
 weak_ptr<UiElement> ofApp::hoveredElement;
 ofApp* ofApp::mainApp;
@@ -25,6 +26,7 @@ void ofApp::setup(){
 
 	subTitleFont.load("fonts/Retro Gaming.ttf", 35);	//	https://www.dafont.com/retro-gaming.font
 	normalFont.load("fonts/Retro Gaming.ttf", 25);	//	https://www.dafont.com/retro-gaming.font
+	smallFont.load("fonts/Retro Gaming.ttf", 20);	//	https://www.dafont.com/retro-gaming.font
 
 	root = make_shared<ScreenWelcome>();
 
