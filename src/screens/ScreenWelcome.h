@@ -3,11 +3,11 @@
 #include "ofMain.h"
 #include "ui/pokequiz/PokeTitle.h"
 
-class ScreenWelcome : public UiBox
+class ScreenWelcome : public UiElement
 {
 public:
-	ofTrueTypeFont titleFont;
-	ofTrueTypeFont titleOutlineFont;
+	static ofTrueTypeFont titleFont;
+	static ofTrueTypeFont titleOutlineFont;
 
 	std::shared_ptr<PokeTitle> titleElement;
 

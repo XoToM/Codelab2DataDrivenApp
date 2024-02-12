@@ -22,6 +22,7 @@ public:
 	std::string text = "";
 
 	UiText(std::string text, ofTrueTypeFont* font, float x, float y, float width = -1);
+	UiText(std::string text, float x, float y, float width = -1);
 
 	void onRender(float x, float y);
 

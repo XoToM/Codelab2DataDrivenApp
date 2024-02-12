@@ -70,6 +70,13 @@
     <ClCompile Include="src\screens\ScreenDifficultySelect.cpp">
       <Filter>src\screens</Filter>
     </ClCompile>
+    <ClCompile Include="src\QuizGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pokeapi\ApiHelper.cpp" />
+    <ClCompile Include="src\screens\ScreenError.cpp">
+      <Filter>src\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -113,6 +120,9 @@
     </Filter>
     <Filter Include="src\ui\specialized">
       <UniqueIdentifier>{c7f628f7-ed9f-4453-894f-626ee169db2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pokeapi">
+      <UniqueIdentifier>{863e19e3-fe50-48d3-b067-da980df169bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +199,13 @@
       <Filter>src\ui\specialized</Filter>
     </ClInclude>
     <ClInclude Include="src\screens\ScreenDifficultySelect.h">
+      <Filter>src\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\QuizGenerator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pokeapi\ApiHelper.h" />
+    <ClInclude Include="src\screens\ScreenError.h">
       <Filter>src\screens</Filter>
     </ClInclude>
   </ItemGroup>

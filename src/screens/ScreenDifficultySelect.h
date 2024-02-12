@@ -1,7 +1,7 @@
 #pragma once
 #include "ui/UiBox.h"
 
-class ScreenDifficultySelect : public UiBox
+class ScreenDifficultySelect : public UiElement
 {
 public:
 	ScreenDifficultySelect();

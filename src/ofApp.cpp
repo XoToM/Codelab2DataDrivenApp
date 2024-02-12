@@ -19,7 +19,10 @@ void ofApp::setup(){
 	//	Load Fonts
 
 
-	subTitleFont.load("fonts/Retro Gaming.ttf", 35);	//	https://befonts.com/pokemon-font.html
+	titleFont.load("fonts/Pokemon Solid.ttf", 50);	//	https://befonts.com/pokemon-font.html
+	titleHighlightFont.load("fonts/Pokemon Hollow.ttf", 50);	//	https://befonts.com/pokemon-font.html
+
+	subTitleFont.load("fonts/Retro Gaming.ttf", 35);	//	https://www.dafont.com/retro-gaming.font
 	normalFont.load("fonts/Retro Gaming.ttf", 25);	//	https://www.dafont.com/retro-gaming.font
 
 	root = make_shared<ScreenWelcome>();

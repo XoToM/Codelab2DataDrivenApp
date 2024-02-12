@@ -1,9 +1,15 @@
 #include "UiText.h"
 #include "ofMain.h"
+#include "ofApp.h"
 
 UiText::UiText(std::string text, ofTrueTypeFont* font, float x, float y, float width) : UiElement(x, y, width, 0) {
 	this->text = text;
 	this->pFont = font;
+	updateWordWrapping();
+}
+UiText::UiText(std::string text, float x, float y, float width) : UiElement(x, y, width, 0) {
+	this->text = text;
+	this->pFont = &ofApp::normalFont;
 	updateWordWrapping();
 }
 
@@ -58,10 +64,6 @@ void UiText::updateWordWrapping() {
 	}
 }
 void UiText::onRender(float x, float y) {
-
-	//ofSetColor(255, 0, 0);		//	Draw a box for debugging purposes
-	//ofDrawRectangle(x, y, this->estimatedWidth, this->height);
-
 	float offset = 0;
 	ofSetColor(this->textColor);
 

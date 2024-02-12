@@ -4,13 +4,18 @@
 #include "ui/pokequiz/PokeTitle.h"
 
 #include "ScreenDifficultySelect.h"
+#include "ScreenError.h"
 
-ScreenWelcome::ScreenWelcome() : UiBox(0, 0, ofGetWidth(), ofGetHeight()) {
-	//	Load fonts for the title screen. These are loaded in here instead of in ofApp because font this big is only used here
-	this->titleFont.load("fonts/Pokemon Solid.ttf", 110);	//	https://befonts.com/pokemon-font.html
-	this->titleOutlineFont.load("fonts/Pokemon Hollow.ttf", 110);	//	https://befonts.com/pokemon-font.html
 
-	this->titleElement = this->addChild(make_shared<PokeTitle>("Poke Quiz", &this->titleFont, &this->titleOutlineFont));	//	Define ui elements
+ofTrueTypeFont ScreenWelcome::titleFont;
+ofTrueTypeFont ScreenWelcome::titleOutlineFont;
+
+ScreenWelcome::ScreenWelcome() : UiElement(0, 0, ofGetWidth(), ofGetHeight()) {
+	//	Load fonts for the title screen if they are not loaded already. These are loaded in here instead of in ofApp because font this big is only used here
+	if(!ScreenWelcome::titleFont.isLoaded()) ScreenWelcome::titleFont.load("fonts/Pokemon Solid.ttf", 110);	//	https://befonts.com/pokemon-font.html
+	if (!ScreenWelcome::titleOutlineFont.isLoaded())ScreenWelcome::titleOutlineFont.load("fonts/Pokemon Hollow.ttf", 110);	//	https://befonts.com/pokemon-font.html
+
+	this->titleElement = this->addChild(make_shared<PokeTitle>("Poke Quiz", &ScreenWelcome::titleFont, &ScreenWelcome::titleOutlineFont));	//	Define ui elements
 	this->addChild(make_shared<UiText>("By Dawid Kawka", &ofApp::normalFont, 20, ofGetHeight() - 50))->textColor = ofColor(255,255,255);
 	auto centerText = this->addChild(make_shared<UiText>("Click anywhere to start", &ofApp::subTitleFont, 0, ofGetHeight() / 2 + 50, ofGetWidth()));
 	centerText->textAlignment = UiText::TextAlignment::Center;
@@ -22,9 +27,10 @@ void ScreenWelcome::onUpdate() {
 
 	this->titleElement->yPosition = 40 + 10 * sinf(timeLoopOffset);	//	Make the title move a bit
 	
-	UiBox::onUpdate();	//	Update the child elements
+	UiElement::onUpdate();	//	Update the child elements
 }
 bool ScreenWelcome::onClick(float x, float y) {
 	ofApp::changeScreens(make_shared<ScreenDifficultySelect>());
+	ofApp::changeScreens(make_shared<ScreenError>());
 	return true;
 }

@@ -16,7 +16,10 @@ void PokeTitle::onRender(float x, float y) {
 	this->textColor = secondaryColor;	//	Setup rendering the outline
 	this->pFont = this->pSecondaryFont;
 	UiText::onRender(x, y + 1);			//	Render the outline multiple times with several different offsets because the pokemon fonts don't match exactly for some reason. These offsets appear to remove most graphical glitches from the fonts not matching
+	UiText::onRender(x, y);
 	UiText::onRender(x, y-1);
+	UiText::onRender(x+1, y);
+	UiText::onRender(x-1, y);
 	UiText::onRender(x-2, y);
 	UiText::onRender(x + 2, y + 1);
 }
