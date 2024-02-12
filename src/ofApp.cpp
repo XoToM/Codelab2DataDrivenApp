@@ -17,7 +17,12 @@ ofApp* ofApp::mainApp;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	//	Set up static variables
 	mainApp = this;
+
+	//	Register events
+	ofRegisterURLNotification(this);
+
 	//	Load Fonts
 
 
@@ -101,6 +106,17 @@ void ofApp::updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<
 	auto fullPointer = hoveredElement.lock();
 	for (auto child : fullPointer->Children) {
 		if (child->isInBounds(mouseX-child->xPosition, mouseY - child->yPosition)) updateMouseHoveredElement(mouseX - child->xPosition, mouseY - child->yPosition, child);
+	}
+}
+
+void ofApp::urlResponse(ofHttpResponse& response) {		//	Wait for the image to be fetched from the internet
+	if (response.status == 200) {
+		ofImage image;
+		image.loadImage(response.data);		//	Load the image from the received data
+		this->imageCache[response.request.name] = image;	//	Store the loaded image in the image cache
+	}
+	else {
+		ofApp::showError();	//	Something went wrong
 	}
 }
 

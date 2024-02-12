@@ -4,11 +4,13 @@
 class PokemonResource
 {
 	bool isLoaded = false;
+	bool isValid = false;
 public:
 	std::string speciesUrl;
 	std::string speciesName;
 	std::string pokemonName;
 
+	PokemonResource();
 	PokemonResource(std::string speciesName, std::string speciesUrl);
 
 	/// <summary>

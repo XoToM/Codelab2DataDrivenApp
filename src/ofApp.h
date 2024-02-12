@@ -17,7 +17,9 @@ class ofApp : public ofBaseApp{
 
 		static weak_ptr<UiElement> hoveredElement;
 
+
 		bool isLeftMousePressed = false;
+		std::map<std::string, ofImage> imageCache;
 
 		void setup();
 		void update();
@@ -32,6 +34,7 @@ class ofApp : public ofBaseApp{
 		void mouseEntered(int x, int y);
 		void mouseExited(int x, int y);
 		void gotMessage(ofMessage msg);
+		void urlResponse(ofHttpResponse& response);
 
 		void updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<UiElement> currentNode);
 

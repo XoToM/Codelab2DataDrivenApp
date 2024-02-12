@@ -8,6 +8,7 @@
 #include "ScreenGenerationSelect.h"
 #include "QuizGenerator.h"
 
+
 ScreenDifficultySelect::ScreenDifficultySelect() : UiElement(0, 0, ofGetWidth(), ofGetHeight()) {
 	this->addChild(make_shared<PokeTitle>("Select the difficulty", &ofApp::titleFont, &ofApp::titleHighlightFont));	//	Insert this screen's title
 

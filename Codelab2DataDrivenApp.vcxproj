@@ -200,11 +200,13 @@
     <ClCompile Include="src\screens\ScreenDifficultySelect.cpp" />
     <ClCompile Include="src\screens\ScreenError.cpp" />
     <ClCompile Include="src\screens\ScreenGenerationSelect.cpp" />
+    <ClCompile Include="src\screens\ScreenPokeQuestion.cpp" />
     <ClCompile Include="src\screens\ScreenWelcome.cpp" />
     <ClCompile Include="src\ui\pokequiz\PokeTitle.cpp" />
     <ClCompile Include="src\ui\UiBox.cpp" />
     <ClCompile Include="src\ui\UiButton.cpp" />
     <ClCompile Include="src\ui\UiElement.cpp" />
+    <ClCompile Include="src\ui\UiImage.cpp" />
     <ClCompile Include="src\ui\UiText.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -232,12 +234,14 @@
     <ClInclude Include="src\screens\ScreenDifficultySelect.h" />
     <ClInclude Include="src\screens\ScreenError.h" />
     <ClInclude Include="src\screens\ScreenGenerationSelect.h" />
+    <ClInclude Include="src\screens\ScreenPokeQuestion.h" />
     <ClInclude Include="src\screens\ScreenWelcome.h" />
     <ClInclude Include="src\ui\pokequiz\PokeTitle.h" />
     <ClInclude Include="src\ui\pokequiz\UiConstants.h" />
     <ClInclude Include="src\ui\UiBox.h" />
     <ClInclude Include="src\ui\UiButton.h" />
     <ClInclude Include="src\ui\UiElement.h" />
+    <ClInclude Include="src\ui\UiImage.h" />
     <ClInclude Include="src\ui\UiText.h" />
   </ItemGroup>
   <ItemGroup>
