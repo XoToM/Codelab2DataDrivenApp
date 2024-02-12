@@ -67,6 +67,9 @@
     <ClCompile Include="src\ui\pokequiz\PokeTitle.cpp">
       <Filter>src\ui\pokequiz</Filter>
     </ClCompile>
+    <ClCompile Include="src\screens\ScreenDifficultySelect.cpp">
+      <Filter>src\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -184,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="src\ui\pokequiz\PokeTitle.h">
       <Filter>src\ui\pokequiz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screens\ScreenDifficultySelect.h">
+      <Filter>src\screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
