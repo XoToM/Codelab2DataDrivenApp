@@ -3,8 +3,8 @@
 class UiButton : public UiBox
 {
 public:
-	ofColor hoverColor = ofColor(245, 245, 245);
-	ofColor clickColor = ofColor(230, 230, 230);
+	ofColor hoverColor = ofColor(230, 230, 230);
+	ofColor clickColor = ofColor(210, 210, 210);
 	std::function<void()> onClickHandler;
 
 	UiButton(float x, float y, float width, float height, std::function<void()> onClick);

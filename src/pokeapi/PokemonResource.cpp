@@ -43,10 +43,8 @@ void PokemonResource::fetch() {
 
 	if (pokemonInfo["sprites"]["other"]["official-artwork"]["front_default"].isString()) {		//	Try fetching the official artwork image for this pokemon
 		this->imageUrl = pokemonInfo["sprites"]["other"]["official-artwork"]["front_default"].asString();
-		cout << "Main image for " << this->pokemonName << endl;
 	}
 	else if(pokemonInfo["sprites"]["front_default"].isString()){		//	If we cannot fetch the official artwork for this pokemon we should fall back to the default sprite for it
-		cout << "Backup image for " << this->pokemonName << endl;
 		this->imageUrl = pokemonInfo["sprites"]["front_default"].asString();
 	}
 	else {

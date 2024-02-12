@@ -18,7 +18,7 @@ QuizGenerator::QuizGenerator(std::map<std::string, PokemonResource> pokemons, Qu
 	this->lives = this->maxLives;
 
 }
-std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {
+std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {	//	generateNextQuestion generates the next question and returns the current question. When you are answering a question the program already has the next question prepared for you.
 	auto answers = std::vector<std::string>();
 	int correct = (int)std::floor(ofRandom(4));		//	Determine which pokemon will be the correct one
 
@@ -43,7 +43,6 @@ std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {
 		}
 		if (uniqueCheckFailed) {
 			i--;	//	Decrement i. It will be incremented again on the next iteration of the loop, meaning that this effectively forces this iteration of the loop to restart.
-			std::cout << "Reroll" << std::endl;
 			continue;
 		}
 
@@ -51,7 +50,7 @@ std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {
 		if (i == correct) correctImageUrl = pokemonInfo->imageUrl;
 	}
 	
-	std::cout << "The correct answer is " << answers[correct] << std::endl;
+	//std::cout << "The correct answer is " << answers[correct] << std::endl;	//	Prints the correct answer to the next question in the console. Not used for debugging.
 
 	std::shared_ptr<ScreenPokeQuestion> question = std::make_shared<ScreenPokeQuestion>(this->questionCount++, "Who's that pokemon?", answers, correct, correctImageUrl);
 

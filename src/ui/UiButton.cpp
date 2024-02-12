@@ -14,7 +14,8 @@ std::shared_ptr<UiButton> UiButton::makeButtonWithLabel(std::string text, float 
 	if (width < 0) width = textBbox.getWidth() + 20;
 
 	auto button = make_shared<UiButton>(x, y, width, std::round(textBbox.getHeight()/font->getLineHeight()) * font->getLineHeight() + 10, onClickHandler);
-	button->fillColor = ofColor(255, 255, 255);
+	button->fillColor = ofColor(245, 245, 245);
+	button->borderRadius = 3;
 
 	auto label = button->addChild(make_shared<UiText>(text, font, 5, 0, width - 10));
 	label->doWordWrapping = false;

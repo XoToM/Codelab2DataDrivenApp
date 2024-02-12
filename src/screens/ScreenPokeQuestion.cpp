@@ -38,7 +38,7 @@ ScreenPokeQuestion::ScreenPokeQuestion(int questionNumber, std::string questionT
 
 			pokeImage->blindImage = false;
 			if (i == correctIndex) {
-				qaLabel->text = "Thats Right! This is a " + correctAnsewr;
+				qaLabel->text = "Thats Right! It's " + correctAnsewr;
 				QuizGenerator::mainGenerator->score++;
 				if (QuizGenerator::mainGenerator->streak++ >= 2) {
 					QuizGenerator::mainGenerator->streak -= 3;
@@ -47,7 +47,7 @@ ScreenPokeQuestion::ScreenPokeQuestion(int questionNumber, std::string questionT
 				}
 			}
 			else {
-				qaLabel->text = "Wrong! This is a " + correctAnsewr;
+				qaLabel->text = "Wrong! It's " + correctAnsewr;
 				QuizGenerator::mainGenerator->lives--;
 				QuizGenerator::mainGenerator->streak = 0;
 				if (QuizGenerator::mainGenerator->lives <= 0) {
