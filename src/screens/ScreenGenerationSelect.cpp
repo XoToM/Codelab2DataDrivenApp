@@ -41,9 +41,13 @@ ScreenGenerationSelect::ScreenGenerationSelect(QuizGenerator::QuizDifficulty dif
 		auto generationInfo = std::get<1>(gameGenerations[i]);
 
 		//	Generate a button for each generation and make them wrap around the optionsBox, effectively creating a grid of buttons
-		optionsBox->addChild(UiButton::makeButtonWithLabel(generationName, (i % 3) * 310, (i / 3) * (ofApp::normalFont.getLineHeight() + 30), [generationInfo]() {
+		optionsBox->addChild(UiButton::makeButtonWithLabel(generationName, (i % 3) * 310, (i / 3) * (ofApp::normalFont.getLineHeight() + 30), [generationInfo, difficulty]() {
 			std::map<std::string, PokemonResource> pokemons;	//	A map is used here to avoid duplicate pokemon entries.
 			collectPokemons(&pokemons, generationInfo);	//	Add the pokemon into the list of all the pokemon the quiz can ask questions about.
+
+			QuizGenerator::mainGenerator = std::make_unique<QuizGenerator>(pokemons, difficulty);
+
+			ofApp::changeScreens(QuizGenerator::mainGenerator->generateNextQuestion());
 
 			}, &ofApp::smallFont, 270));
 	}
