@@ -1,5 +1,6 @@
 #include "QuizGenerator.h"
 #include <ofMath.h>
+#include <ofApp.h>
 
 
 std::unique_ptr<QuizGenerator> QuizGenerator::mainGenerator;
@@ -17,7 +18,6 @@ QuizGenerator::QuizGenerator(std::map<std::string, PokemonResource> pokemons, Qu
 
 }
 std::shared_ptr<ScreenPokeQuestion> QuizGenerator::generateNextQuestion() {
-
 	auto answers = std::vector<std::string>();
 	int correct = (int)std::floor(ofRandom(4));		//	Determine which pokemon will be the correct one
 

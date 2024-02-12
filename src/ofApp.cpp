@@ -4,6 +4,7 @@
 #include "ofMain.h"
 #include <screens/ScreenWelcome.h>
 #include <screens/ScreenError.h>
+#include <ui/UiButton.h>
 
 
 ofTrueTypeFont ofApp::titleFont;
@@ -31,7 +32,6 @@ void ofApp::setup(){
 	smallFont.load("fonts/Retro Gaming.ttf", 20);	//	https://www.dafont.com/retro-gaming.font
 
 	root = make_shared<ScreenWelcome>();
-
 }
 
 //--------------------------------------------------------------
@@ -113,5 +113,5 @@ void ofApp::updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<
 }
 
 void ofApp::showError() {
-	ofApp::changeScreens(make_shared<ScreenError>());
+	ofApp::changeScreens(make_shared<ScreenError>());	//	Change screen to the error screen
 }

@@ -46,4 +46,9 @@ class ofApp : public ofBaseApp{
 		/// Shows the error screen.
 		/// </summary>
 		static void showError();
+
+		/// <summary>
+		/// Shows the loading screen.
+		/// </summary>
+		static void showLoading();
 };
