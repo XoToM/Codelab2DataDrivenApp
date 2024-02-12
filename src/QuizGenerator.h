@@ -9,7 +9,7 @@ public:
 	int lives = 3;
 
 
-	QuizGenerator(QuizDifficulty difficulty) {
+	QuizGenerator(QuizDifficulty difficulty) {//, std::map < std::string, boost::optional<std::> > 
 		this->difficulty = difficulty;
 	}
 

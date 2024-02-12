@@ -73,9 +73,14 @@
     <ClCompile Include="src\QuizGenerator.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\pokeapi\ApiHelper.cpp" />
     <ClCompile Include="src\screens\ScreenError.cpp">
       <Filter>src\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pokeapi\PokemonResource.cpp">
+      <Filter>src\pokeapi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pokeapi\ApiHelper.cpp">
+      <Filter>src\pokeapi</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,11 +209,16 @@
     <ClInclude Include="src\QuizGenerator.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\pokeapi\ApiHelper.h" />
     <ClInclude Include="src\screens\ScreenError.h">
       <Filter>src\screens</Filter>
     </ClInclude>
     <ClInclude Include="ApiErrors.h">
+      <Filter>src\pokeapi</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pokeapi\PokemonResource.h">
+      <Filter>src\pokeapi</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pokeapi\ApiHelper.h">
       <Filter>src\pokeapi</Filter>
     </ClInclude>
   </ItemGroup>

@@ -195,6 +195,7 @@
     <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
     <ClCompile Include="src\pokeapi\ApiHelper.cpp" />
+    <ClCompile Include="src\pokeapi\PokemonResource.cpp" />
     <ClCompile Include="src\QuizGenerator.cpp" />
     <ClCompile Include="src\screens\ScreenDifficultySelect.cpp" />
     <ClCompile Include="src\screens\ScreenError.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
     <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
     <ClInclude Include="src\pokeapi\ApiHelper.h" />
+    <ClInclude Include="src\pokeapi\PokemonResource.h" />
     <ClInclude Include="src\QuizGenerator.h" />
     <ClInclude Include="src\screens\ScreenDifficultySelect.h" />
     <ClInclude Include="src\screens\ScreenError.h" />
