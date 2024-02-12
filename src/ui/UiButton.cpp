@@ -11,10 +11,10 @@ std::shared_ptr<UiButton> UiButton::makeButtonWithLabel(std::string text, float 
 
 	if (width < 0) width = textBbox.getWidth() + 20;
 
-	auto button = make_shared<UiButton>(x, y, width, textBbox.getHeight() + 10, onClickHandler);
+	auto button = make_shared<UiButton>(x, y, width, std::round(textBbox.getHeight()/font->getLineHeight()) * font->getLineHeight() + 10, onClickHandler);
 	button->fillColor = ofColor(255, 255, 255);
 
-	auto label = button->addChild(make_shared<UiText>(text, font, 5, 5, width - 10));
+	auto label = button->addChild(make_shared<UiText>(text, font, 5, 0, width - 10));
 	label->doWordWrapping = false;
 	label->textAlignment = UiText::TextAlignment::Center;
 	label->updateWordWrapping();
@@ -28,6 +28,7 @@ ofColor UiButton::getFillColor() {
 			return this->clickColor;
 		}
 		else {
+			return ofColor(255, 0, 0);	//	Debugging buttons
 			return this->hoverColor;
 		}
 	}

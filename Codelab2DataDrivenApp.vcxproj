@@ -232,6 +232,7 @@
     <ClInclude Include="src\screens\ScreenError.h" />
     <ClInclude Include="src\screens\ScreenWelcome.h" />
     <ClInclude Include="src\ui\pokequiz\PokeTitle.h" />
+    <ClInclude Include="src\ui\pokequiz\UiConstants.h" />
     <ClInclude Include="src\ui\UiBox.h" />
     <ClInclude Include="src\ui\UiButton.h" />
     <ClInclude Include="src\ui\UiElement.h" />

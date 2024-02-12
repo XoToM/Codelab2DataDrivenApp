@@ -1,5 +1,6 @@
 #include "UiBox.h"
 #include "ofMain.h"
+#include "pokequiz/UiConstants.h"
 
 void UiBox::onRender(float x, float y) {
 
@@ -46,8 +47,8 @@ UiBox::UiBox(float x, float y, float width, float height, ofColor fillColor) : U
 std::shared_ptr<UiBox> UiBox::make_frame(float x, float y, float width, float height) {
 	auto box = make_shared<UiBox>(x,y, width,height);	//	Sets up the frame to look similar to Pokemon Gen 3's border. 
 	box->borderColor = ofColor(0, 0, 128);		//	Make the border blue
-	box->borderRadius = 7.5;
-	box->borderWidth = 7.5;
+	box->borderRadius = POKEQUIZ_UI_FRAME_BORDER_WIDTH;
+	box->borderWidth = POKEQUIZ_UI_FRAME_BORDER_WIDTH;
 
 	box->fillColor = ofColor(255, 255, 255);		//	Make box itself white
 	return box;

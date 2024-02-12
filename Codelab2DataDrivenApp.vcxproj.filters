@@ -221,6 +221,9 @@
     <ClInclude Include="src\pokeapi\ApiHelper.h">
       <Filter>src\pokeapi</Filter>
     </ClInclude>
+    <ClInclude Include="src\ui\pokequiz\UiConstants.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

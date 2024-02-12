@@ -50,3 +50,10 @@ bool UiElement::onClick(float x, float y) {
 	}
 	return false;
 }
+void UiElement::centerHorizontallyOnScreen() {
+	this->xPosition = ofGetWidth() / 2 - this->width / 2;
+}
+
+void UiElement::centerHorizontallyInParent(std::shared_ptr<UiElement> parent) {
+	this->xPosition = parent->width / 2 - this->width / 2;
+}

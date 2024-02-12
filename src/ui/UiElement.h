@@ -65,7 +65,20 @@ public:
 		this->Children.push_back(child);
 		return new_child;
 	}
-
+	/// <summary>
+	/// Checks if this element or its children are being hovered over.
+	/// </summary>
+	/// <returns>True if this elemnt or its child is being hovered over, false otherwise</returns>
 	bool isHoveredOver();
+
+	/// <summary>
+	/// Centers this element on the screen horizontally by calculating its x position from the window's width and this element's width.
+	/// </summary>
+	void centerHorizontallyOnScreen();
+
+	/// <summary>
+	/// Centers this element on the screen horizontally by calculating its x position from the parent's width and this element's width.
+	/// </summary>
+	void centerHorizontallyInParent(std::shared_ptr<UiElement> parent);
 };
 
