@@ -41,6 +41,12 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	float width = (float)ofGetWidth();
+	float height = (float)ofGetHeight();
+	ofSetColor(ofColor(121, 173, 220));
+	ofDrawRectangle(0,0, width, height/2);
+	ofSetColor(ofColor(159, 211, 86));
+	ofDrawRectangle(0, height / 2, width, height / 2);
 	root->onRender(0, 0);
 }
 

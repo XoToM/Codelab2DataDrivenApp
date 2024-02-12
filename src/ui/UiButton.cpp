@@ -25,12 +25,11 @@ std::shared_ptr<UiButton> UiButton::makeButtonWithLabel(std::string text, float 
 }
 
 ofColor UiButton::getFillColor() {
-	if (this->isHoveredOver()) {
+	if (this->isHoveredOver()) {	//	Return the color of this button if its hovered, pressed, or neither.
 		if (ofApp::mainApp->isLeftMousePressed) {
 			return this->clickColor;
 		}
 		else {
-			//return ofColor(255, 0, 0);	//	Debugging buttons
 			return this->hoverColor;
 		}
 	}
@@ -38,6 +37,11 @@ ofColor UiButton::getFillColor() {
 }
 
 bool UiButton::onClick(float x, float y) {
-	onClickHandler();
+	try {
+		onClickHandler();	//	Try performing the click action
+	}
+	catch (int exception) {
+		ofApp::showError();	//	Show the error screen
+	}
 	return true;
 }
