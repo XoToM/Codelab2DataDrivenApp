@@ -39,4 +39,8 @@ class ofApp : public ofBaseApp{
 			ofApp::root = newScreenPointer;
 			ofApp::mainApp->updateMouseHoveredElement(ofGetMouseX(), ofGetMouseY(), newScreenPointer);
 		}
+		/// <summary>
+		/// Shows the error screen.
+		/// </summary>
+		static void showError();
 };

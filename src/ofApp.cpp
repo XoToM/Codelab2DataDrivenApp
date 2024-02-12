@@ -3,6 +3,7 @@
 #include "ofApp.h"
 #include "ofMain.h"
 #include <screens/ScreenWelcome.h>
+#include <screens/ScreenError.h>
 
 
 ofTrueTypeFont ofApp::titleFont;
@@ -99,4 +100,8 @@ void ofApp::updateMouseHoveredElement(float mouseX, float mouseY, std::weak_ptr<
 	for (auto child : fullPointer->Children) {
 		if (child->isInBounds(mouseX-child->xPosition, mouseY - child->yPosition)) updateMouseHoveredElement(mouseX - child->xPosition, mouseY - child->yPosition, child);
 	}
+}
+
+void ofApp::showError() {
+	ofApp::changeScreens(make_shared<ScreenError>());
 }

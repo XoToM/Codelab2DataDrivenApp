@@ -31,6 +31,5 @@ void ScreenWelcome::onUpdate() {
 }
 bool ScreenWelcome::onClick(float x, float y) {
 	ofApp::changeScreens(make_shared<ScreenDifficultySelect>());
-	ofApp::changeScreens(make_shared<ScreenError>());
 	return true;
 }

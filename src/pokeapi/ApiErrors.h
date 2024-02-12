@@ -1,0 +1,4 @@
+#pragma once
+
+#define POKEAPI_NETWORK_EXCEPTION 1
+#define POKEAPI_JSON_EXCEPTION 2
